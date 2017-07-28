@@ -1,0 +1,168 @@
+<mapdriven:collected-data xmlns:enum="http://dita4publishers.org/enumerables"
+                          xmlns:applicability="http://dita4publishers.org/applicability"
+                          xmlns:index-terms="http://dita4publishers.org/index-terms"
+                          xmlns:mapdriven="http://dita4publishers.org/mapdriven">
+   <enum:enumerables>
+      <topicref xmlns="http://dita4publishers.org/enumerables" class="- map/topicref "
+                sourceId="id-1775--topicref-4-45-36"
+                xml:lang="en-us"
+                xtrc="topicref:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/e8d088eb1f40410ba9019c83ce56e4ee.ditamap"
+                type="reference"
+                topicID="loio0d9be6e982da4d00a0d6b09d1b66e7d2">
+         <title>Full Catalog - old</title>
+         <title>How to use the SAP Development University course catalog</title>
+         <table class="- topic/table "
+                sourceId="id-58930-loio0d9be6e982da4d00a0d6b09d1b66e7d2--catalogtable-10-0-3727"
+                origId="catalog"
+                xml:lang="en-us"
+                xtrc="table:2"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/0d9be6e982da4d00a0d6b09d1b66e7d2.xml">
+            <title/>
+         </table>
+         <title/>
+      </topicref>
+      <topicref xmlns="http://dita4publishers.org/enumerables" class="- map/topicref "
+                sourceId="id-1775--topicref-9-40-18"
+                xml:lang="en-us"
+                xtrc="topicref:2"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/e8d088eb1f40410ba9019c83ce56e4ee.ditamap"
+                type="reference"
+                topicID="loio3c417adfecf94013b9e414c212d62c72">
+         <title>Journey 1</title>
+         <table class="- topic/table "
+                sourceId="id-13260-loio3c417adfecf94013b9e414c212d62c72--catalogtable-11-0-3801"
+                origId="catalog"
+                xml:lang="en-us"
+                xtrc="table:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/3c417adfecf94013b9e414c212d62c72.xml"/>
+      </topicref>
+      <topicref xmlns="http://dita4publishers.org/enumerables" class="- map/topicref "
+                sourceId="id-1775--topicref-14-35-40"
+                xml:lang="en-us"
+                xtrc="topicref:3"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/e8d088eb1f40410ba9019c83ce56e4ee.ditamap"
+                type="reference"
+                topicID="loio3bc4c779deb84ea0937025dd7e5f546e">
+         <title>SAP HANA Development</title>
+         <table class="- topic/table "
+                sourceId="id-27416-loio3bc4c779deb84ea0937025dd7e5f546e--journeytable-5-11352-1364"
+                origId="journey"
+                xml:lang="en-us"
+                xtrc="table:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/3bc4c779deb84ea0937025dd7e5f546e.xml"/>
+         <table class="- topic/table "
+                sourceId="id-61275-loio3bc4c779deb84ea0937025dd7e5f546e--assetstable-81-0-489462"
+                origId="assets"
+                xml:lang="en-us"
+                xtrc="table:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/3bc4c779deb84ea0937025dd7e5f546e.xml"/>
+      </topicref>
+      <topicref xmlns="http://dita4publishers.org/enumerables" class="- map/topicref "
+                sourceId="id-1775--topicref-19-30-86"
+                xml:lang="en-us"
+                xtrc="topicref:4"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/e8d088eb1f40410ba9019c83ce56e4ee.ditamap"
+                type="reference"
+                topicID="loio0114f1c41c124fdab2f9a574cc145cd8">
+         <title>SAP S/4HANA Overview and Business Processes</title>
+         <table class="- topic/table "
+                sourceId="id-43764-loio0114f1c41c124fdab2f9a574cc145cd8--journeytable-5-11352-1735"
+                origId="journey"
+                xml:lang="en-us"
+                xtrc="table:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/0114f1c41c124fdab2f9a574cc145cd8.xml"/>
+         <table class="- topic/table "
+                sourceId="id-61275-loio0114f1c41c124fdab2f9a574cc145cd8--assetstable-93-0-489462"
+                origId="assets"
+                xml:lang="en-us"
+                xtrc="table:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/0114f1c41c124fdab2f9a574cc145cd8.xml"/>
+      </topicref>
+      <topicref xmlns="http://dita4publishers.org/enumerables" class="- map/topicref "
+                sourceId="id-1775--topicref-24-25-20"
+                xml:lang="en-us"
+                xtrc="topicref:5"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/e8d088eb1f40410ba9019c83ce56e4ee.ditamap"
+                type="reference"
+                topicID="loio3c1237fe66704871b94c3598b99cb5f0">
+         <title>All Assets</title>
+         <table class="- topic/table "
+                sourceId="id-61275-loio3c1237fe66704871b94c3598b99cb5f0--assetstable-5-0-489462"
+                origId="assets"
+                xml:lang="en-us"
+                xtrc="table:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/3c1237fe66704871b94c3598b99cb5f0.xml"/>
+      </topicref>
+      <topicref xmlns="http://dita4publishers.org/enumerables" class="- map/topicref "
+                sourceId="id-1775--topicref-29-20-16"
+                xml:lang="en-us"
+                xtrc="topicref:6"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/e8d088eb1f40410ba9019c83ce56e4ee.ditamap"
+                type="reference"
+                topicID="loio2d265231a14d44f2b68e36a9784ef43e">
+         <title>Assets 1</title>
+      </topicref>
+      <topicref xmlns="http://dita4publishers.org/enumerables" class="- map/topicref "
+                sourceId="id-1775--topicref-34-15-16"
+                xml:lang="en-us"
+                xtrc="topicref:7"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/e8d088eb1f40410ba9019c83ce56e4ee.ditamap"
+                type="reference"
+                topicID="loioa16790dded064e91a7e7f195b3b9a97d">
+         <title>Assets 2</title>
+      </topicref>
+      <topicref xmlns="http://dita4publishers.org/enumerables" class="- map/topicref "
+                sourceId="id-1775--topicref-39-10-16"
+                xml:lang="en-us"
+                xtrc="topicref:8"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/e8d088eb1f40410ba9019c83ce56e4ee.ditamap"
+                type="reference"
+                topicID="loiof5d5b33a1e604dc5b5bade1ac8a0fb34">
+         <title>Assets 3</title>
+      </topicref>
+      <topicref xmlns="http://dita4publishers.org/enumerables" class="- map/topicref "
+                sourceId="id-1775--topicref-44-5-60"
+                xml:lang="en-us"
+                xtrc="topicref:9"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/e8d088eb1f40410ba9019c83ce56e4ee.ditamap"
+                type="reference"
+                topicID="loio5105cd07966f499b8015c0d2a5b26e98">
+         <title>Full Catalog (complete source)</title>
+         <table class="- topic/table "
+                sourceId="id-20048-loio5105cd07966f499b8015c0d2a5b26e98--journeytable-5-11352-122430"
+                origId="journey"
+                xml:lang="en-us"
+                xtrc="table:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/5105cd07966f499b8015c0d2a5b26e98.xml"/>
+         <table class="- topic/table "
+                sourceId="id-61275-loio5105cd07966f499b8015c0d2a5b26e98--assetstable-4893-0-489462"
+                origId="assets"
+                xml:lang="en-us"
+                xtrc="table:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/5105cd07966f499b8015c0d2a5b26e98.xml"/>
+      </topicref>
+      <topicref xmlns="http://dita4publishers.org/enumerables" class="- map/topicref "
+                sourceId="id-10017--topicref-49-0-60"
+                xml:lang="en-us"
+                xtrc="topicref:10"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/e8d088eb1f40410ba9019c83ce56e4ee.ditamap"
+                type="reference"
+                topicID="loiof5a41aa992fb40549ea8f509e12c4040">
+         <title>Full catalog (pulled together)</title>
+         <table class="- topic/table "
+                sourceId="id-15777-loiof5a41aa992fb40549ea8f509e12c4040--journeytable-5-11352-2765"
+                origId="journey"
+                xml:lang="en-us"
+                xtrc="table:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/f5a41aa992fb40549ea8f509e12c4040.xml"/>
+         <table class="- topic/table "
+                sourceId="id-61275-loiof5a41aa992fb40549ea8f509e12c4040--assetstable-153-0-489462"
+                origId="assets"
+                xml:lang="en-us"
+                xtrc="table:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio67fb1fd9920b42829ea9ce1a7154102c/html500uacp/en-US/release/temp/f5a41aa992fb40549ea8f509e12c4040.xml"/>
+      </topicref>
+   </enum:enumerables>
+   <glossdata:glossary-entries xmlns:glossdata="http://dita4publishers.org/glossdata"/>
+</mapdriven:collected-data>

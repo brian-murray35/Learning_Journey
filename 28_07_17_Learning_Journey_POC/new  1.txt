@@ -1,0 +1,19 @@
+replace 200 with 292 throughout Journey-collapsible.js 
+
+
+Add the following to style.css
+
+rect{	
+width: 248px !important;
+}
+rect.connector{
+width: 45px !important;
+x: 248px;
+ }
+rect#angle{
+width:30px !important;}
+
+rect#first{
+width:15px !important;
+x: -15px !important;
+}
