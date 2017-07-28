@@ -45,11 +45,11 @@ var doneItems =[];
 
 
 var screenWidth = $(window).width();
-var svg = d3.select(".refbody").insert("svg", "div").attr("width", screenWidth -300).attr("height", "2000");
+var svg = d3.select(".refbody").insert("svg", "div").attr("width", screenWidth -300).attr("height", "2000").attr("id", "main_svg");
 width = + svg.attr("width"),
 height = + svg.attr("height"),
 radius = 10;
-var canvaswidth = $(window).width() -292;
+var canvaswidth = $(window).width() -200;
 
 var canvas = svg.append("g").attr("id", "canvas"),
 legend = svg.append("g").attr("id", "legend"),
@@ -60,8 +60,8 @@ content = svg.append("g").attr("id", "content");
 window.onresize = function (event) {
     var newWidth = $(window).width();
     svg.attr("width", newWidth -300);
-    canvas.select("#main").attr("width", newWidth -292);
-    canvaswidth = newWidth -292;
+    canvas.select("#main").attr("width", newWidth -200);
+    canvaswidth = newWidth -200;
     updateSVG(width);
 };
 
@@ -88,7 +88,7 @@ collapsed.selectAll("g").data(table).enter().append("g").attr("id", function (d,
 });
 
 // add basic tile background rectangle to each collapsed asset tile
-collapsed.selectAll("g").append("rect").attr("x", x).attr("y", y).attr("width", "200px").attr("height", "150px").attr("stroke", "#000").attr("stroke-width", "1").attr("rx", 7).attr("ry", 7);   
+collapsed.selectAll("g").append("rect").attr("x", x).attr("y", y).attr("width", "200px").attr("height", "188px").attr("stroke", "#000").attr("stroke-width", "1").attr("rx", 7).attr("ry", 7);   
 
 var margin = {
     top: 20,
@@ -97,7 +97,7 @@ var margin = {
     left: 20
 };
 
-// collapsed.selectAll("g rect").attr("stroke-width", "10").style("margin-right", "200px");
+// collapsed.selectAll("g 	").attr("stroke-width", "10").style("margin-right", "200px");
 
 collapsed.selectAll("g").append("text").attr("fill", "blue").attr("x", "7").attr("y", "112").attr("font-size", "15px").text("Explore").attr("style" ,"display:none")
 
@@ -116,18 +116,18 @@ collapsed.selectAll("g").each(function (d, i) {
         switch (tilecontents[0][4]) {
             case "1": //Learning Room
             d3.select(this).select("rect").attr("fill", "white");
-            d3.select(this).append("text").attr("fill", "#666666").attr("x", "95").attr("y", "15").attr("font-size", "11px").attr("font-family", "Arial, Sans-Serif").text("Learning Room");
+            d3.select(this).append("text").attr("fill", "#666666").attr("x", "167").attr("y", "15").attr("font-size", "11px").attr("font-family", "Arial, Sans-Serif").text("Learning Room");
             d3.select(this).append("text").attr("fill", "black").attr("x", "5").attr("y", "45").attr("font-size", "15px").text(function () {
                 return tilecontents[0][1].trim();
             }).call(wrap, 170);
             d3.select(this).append("circle").attr("cx", "15").attr("cy", "15").attr("r", "10").attr("fill", "red").style("stroke", "black");
-            d3.select(this).append("image").attr("x", 15).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/big_data.png")
+            d3.select(this).append("image").attr("x", 15).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/eLearning.svg")
             d3.select(this).append("text").attr("fill", "#999999").attr("x", "45").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("E-learning")
             d3.select(this).append("image").attr("x", 60).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/cloud.png")
             d3.select(this).append("text").attr("fill", "#999999").attr("x", "95").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("Live Access")
-            d3.select(this).append("image").attr("x", 100).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/factory.png")
+            d3.select(this).append("image").attr("x", 100).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/eBook.svg")
             d3.select(this).append("text").attr("fill", "#999999").attr("x", "125").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("E-book")
-            d3.select(this).append("image").attr("x", 140).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/hana.png")
+            d3.select(this).append("image").attr("x", 140).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/LearningRoom.svg")
             d3.select(this).append("text").attr("fill", "#999999").attr("x", "170").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("Classroom")
             
             // d3.select(this).append("circle").attr("cx", "9").attr("cy", "15").attr("r", "2").attr("fill", "white");
@@ -144,7 +144,7 @@ collapsed.selectAll("g").each(function (d, i) {
             d3.select(this).append("circle").attr("cx", "15").attr("cy", "15").attr("r", "10").attr("fill", "#f2b830").style("stroke", "black");
             d3.select(this).append("image").attr("x", 60).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/cloud.png")
             d3.select(this).append("text").attr("fill", "#999999").attr("x", "95").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("Live Access")
-            d3.select(this).append("image").attr("x", 100).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/factory.png")
+            d3.select(this).append("image").attr("x", 100).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/eBook.svg")
             d3.select(this).append("text").attr("fill", "#999999").attr("x", "125").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("E-book")
             d3.select(this).append("text").attr("fill", "black").attr("x", "170").attr("y", "20").attr("text-anchor", "end").text(function () {
                 return tilecontents[0][2].trim()
@@ -156,10 +156,10 @@ collapsed.selectAll("g").each(function (d, i) {
                 return tilecontents[0][1].trim();
             }).call(wrap, 170);
             d3.select(this).append("circle").attr("cx", "15").attr("cy", "15").attr("r", "10").style("stroke", "black").attr("fill", "#93c939");
-            d3.select(this).append("image").attr("x", 50).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/big_data.png")
+            d3.select(this).append("image").attr("x", 50).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/eLearning.svg")
             d3.select(this).append("text").attr("fill", "#999999").attr("x", "80").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("E-learning")
             
-            d3.select(this).append("image").attr("x", 100).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/hana.png")
+            d3.select(this).append("image").attr("x", 100).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/LearningRoom.svg")
             d3.select(this).append("text").attr("fill", "#999999").attr("x", "130").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("Classroom")
             break;
             case "8": //Certification
@@ -177,9 +177,9 @@ collapsed.selectAll("g").each(function (d, i) {
                 return tilecontents[0][1].trim();
             }).call(wrap, 170);
             d3.select(this).append("circle").attr("cx", "15").attr("cy", "15").attr("r", "10").style("stroke", "black").attr("fill", "#93c939");
-            d3.select(this).append("image").attr("x", 50).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/big_data.png")
+            d3.select(this).append("image").attr("x", 50).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/eLearning.svg")
             d3.select(this).append("text").attr("fill", "#999999").attr("x", "80").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("E-learning")
-            d3.select(this).append("image").attr("x", 100).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/factory.png")
+            d3.select(this).append("image").attr("x", 100).attr("y", 110).attr("width", "25px").attr("height", "25px").attr("xlink:href","img/eBook.svg")
             d3.select(this).append("text").attr("fill", "#999999").attr("x", "125").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("E-book")
             d3.select(this).append("text").attr("fill", "white").attr("x", "170").attr("y", "20").attr("text-anchor", "end").text(function () {
                 return tilecontents[0][2].trim()
@@ -214,7 +214,7 @@ content.selectAll("g").data(table).enter().append("g").attr("id", function (d, i
 });
 
 // add basic tile background rectangle to each asset tile
-content.selectAll("g").append("rect").attr("x", 0).attr("y", 0).attr("rx", "0").attr("ry", "0").attr("width", "180").attr("height", "292").attr("stroke", "#e0e2e5").attr("stroke-width", "1");
+content.selectAll("g").append("rect").attr("x", 0).attr("y", 0).attr("rx", "0").attr("ry", "0").attr("width", "180").attr("height", "200").attr("stroke", "#e0e2e5").attr("stroke-width", "1");
 content.selectAll("g").append("text").attr("fill", "blue").attr("x", "7").attr("y", "112").attr("font-size", "15px").text("Explore")
     .on("click",function (d,i){
         content.select("g[id='" + i + "']").attr("style","display:none")
@@ -289,7 +289,7 @@ content.selectAll("g").each(function (d, i) {
             d3.select(this).append("circle").attr("cx", 90).attr("cy", 120).attr("r", "30").attr("fill", "#f2b830");
             d3.select(this).append("a").attr("href", function () {
                 return tilecontents[0][7].trim()
-            }).append("rect").attr("x", 0).attr("y", 0).attr("rx", "5").attr("ry", "5").attr("width", "180").attr("height", "292").attr("stroke", "#e0e2e5").attr("stroke-width", "1").attr("fill", "transparent");
+            }).append("rect").attr("x", 0).attr("y", 0).attr("rx", "5").attr("ry", "5").attr("width", "180").attr("height", "200").attr("stroke", "#e0e2e5").attr("stroke-width", "1").attr("fill", "transparent");
             break;
             case "9": //Certification
             d3.select(this).select("rect").attr("fill", "grey");
@@ -302,7 +302,7 @@ content.selectAll("g").each(function (d, i) {
             d3.select(this).append("circle").attr("cx", 90).attr("cy", 120).attr("r", "30").attr("fill", "#f2b830");
             d3.select(this).append("a").attr("href", function () {
                 return tilecontents[0][7].trim()
-            }).append("rect").attr("x", 0).attr("y", 0).attr("rx", "5").attr("ry", "5").attr("width", "180").attr("height", "292").attr("stroke", "#e0e2e5").attr("stroke-width", "1").attr("fill", "transparent");
+            }).append("rect").attr("x", 0).attr("y", 0).attr("rx", "5").attr("ry", "5").attr("width", "180").attr("height", "200").attr("stroke", "#e0e2e5").attr("stroke-width", "1").attr("fill", "transparent");
             break;
             case "10": // Stay current (e-Learning)
             d3.select(this).select("rect").attr("fill", "white");
@@ -513,7 +513,7 @@ function updateSVG() {
         
         ycounter = renderPart(QgettingStarted, xcounter, ycounter);
         xcounter = 130;
-        ycounter = ycounter + 292;
+        ycounter = ycounter + 200;
     };
     
     if (QfullyCompetent.length > 0) {
@@ -546,7 +546,7 @@ function updateSVG() {
             });
             ycounter = renderPart(Qtemp, xcounter, ycounter);
             xcounter = 130;
-            ycounter = ycounter + 292;
+            ycounter = ycounter + 200;
         });
     };
     
@@ -581,7 +581,7 @@ function updateSVG() {
             });
             ycounter = renderPart(Qtemp, xcounter, ycounter);
             xcounter = 130;
-            ycounter = ycounter + 292;
+            ycounter = ycounter + 200;
         });
     };
     
@@ -615,7 +615,7 @@ function updateSVG() {
         return ycounter + 240;
     });
     canvas.selectAll("line").attr("y2", function (d) {
-        return ycounter + 150
+        return ycounter + 88
     });
     canvas.select("#square").attr("y", function (d) {
         return ycounter + 140
@@ -669,7 +669,7 @@ function renderPart(Qarray, xcount, ycount) {
                 collapsed.select("g[id='" + index + "']").append("rect").attr("class", "connector").attr("x", -1).attr("y", -20).attr("width", 21).attr("height", 5).attr("fill", "#e0e2e5");
             }
         };
-        if (xcount + 292 < canvaswidth -292) {
+        if (xcount + 200 < canvaswidth -200) {
             xcount = xcount + 292;
             if (i < Qarray.length -1) {
                 collapsed.select("g[id='" + index + "']").append("rect").attr("class", "connector").attr("x", 180).attr("y", 15).attr("width", 20).attr("height", 1).attr("fill", "#000");
@@ -754,3 +754,7 @@ function dragended(d) {
     d3.select(this).classed("active", false);
     alert(d3.select(this).attr("cx"));
 }
+
+// Adding the header
+
+$(".body").prepend($('<div><svg width="100%" height="20px"><line x1="0" y1="0" x2="100%" y2="0" style="stroke:rgb(0,0,0);stroke-width:12" /></svg></div><div class="floating-box1"><img src="img/LearningJourney.svg" alt="Learning Journey" style="width:60px;"></div><div class="floating-box2"><h1 class="title topictitle1">SAP HANA Development</h1></div><div style="margin-top:-5px;margin-right:28px;margin-left:28px"><svg width="100%" height="3px"><line x1="0" y1="0" x2="100%" y2="0" style="stroke:rgb(0,0,0);stroke-width:4" /></svg></div>'));
