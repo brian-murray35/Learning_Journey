@@ -1,9 +1,21 @@
 rect{	
 width: 248px !important;
+margin-bottom: 100px !important;
 }
 rect.connector{
 width: 45px !important;
 x: 248px;
+ }
+ rect.line_connector{
+width: 1px !important;
+height: 150px !important;
+ }
+ 
+ rect.long_connector{
+width: 550px !important;
+ }
+ path.right_connector{
+ x: 66px !important;
  }
 rect#angle{
 width:30px !important;}

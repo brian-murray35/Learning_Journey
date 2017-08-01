@@ -35,9 +35,10 @@ var doneItems =[];
 // Prepare basic svg containers and elements
 
 // define arc elements to be used in "connector" elements in the journey visualization
- var arc = d3.arc().innerRadius(15).outerRadius(20).startAngle(1 * Math.PI).endAngle(1.5 * Math.PI);
- var contarc = d3.arc().innerRadius(15).outerRadius(20).startAngle(1 * Math.PI).endAngle(2 * Math.PI);
- var arccont = d3.arc().innerRadius(15).outerRadius(20).startAngle(0 * Math.PI).endAngle(0.5 * Math.PI);
+ var arc = d3.arc().innerRadius(19).outerRadius(20).startAngle(1 * Math.PI).endAngle(1.5 * Math.PI);
+ var contarc = d3.arc().innerRadius(19).outerRadius(20).startAngle(1 * Math.PI).endAngle(2 * Math.PI);
+ var arccont = d3.arc().innerRadius(19).outerRadius(20).startAngle(0 * Math.PI).endAngle(0.5 * Math.PI);
+var arccontrev = d3.arc().innerRadius(19).outerRadius(20).startAngle(-1 * Math.PI).endAngle(-1.5 * Math.PI);
 
 
 
@@ -455,6 +456,8 @@ totalHeight;
 function updateSVG() {
 // remove all connector elements so that we have a "clean" canvas 
     collapsed.selectAll("rect.connector").remove();
+	 collapsed.selectAll("rect.line_connector").remove();
+	 collapsed.selectAll("rect.long_connector").remove();
     collapsed.selectAll("text.headers").remove();
     collapsed.selectAll("path.connector").remove();
     canvas.selectAll("circle.marker").remove();
@@ -665,8 +668,11 @@ function renderPart(Qarray, xcount, ycount) {
             collapsed.select("g[id='" + index + "']").append("rect").attr("class", "connector").attr("x", -13).attr("y", 15).attr("width", 13).attr("id", "first").attr("height", 1).attr("fill", "#000");
         } else {
             if (xcount == 130) {
-                collapsed.select("g[id='" + index + "']").append("path").attr("class", "connector").attr("transform", "translate(0,0)").attr("fill", "#e0e2e5").attr("d", contarc);
-                collapsed.select("g[id='" + index + "']").append("rect").attr("class", "connector").attr("x", -1).attr("y", -20).attr("width", 21).attr("height", 5).attr("fill", "#e0e2e5");
+                collapsed.select("g[id='" + index + "']").append("path").attr("class", "connector").attr("transform", "translate(0,0)").attr("fill", "#000").attr("d", contarc);
+                collapsed.select("g[id='" + index + "']").append("rect").attr("class", "long_connector").attr("x", -1).attr("y", -20).attr("width", 550).attr("height", 1).attr("fill", "#000").append("path").attr("class", "connector").attr("transform", "translate(250,40)").attr("fill", "#000").attr("d", arccont);
+            }
+			if (xcount == 130) {
+            collapsed.select("g[id='" + index + "']").append("path").attr("class", "connector").attr("transform", "translate(543,-39)").attr("fill", "#000").attr("d", arccontrev);
             }
         };
         if (xcount + 200 < canvaswidth -200) {
@@ -677,9 +683,9 @@ function renderPart(Qarray, xcount, ycount) {
         } else {
             xcount = 130;
             if (i < Qarray.length -1) {
-                ycount = ycount + 160;
-                collapsed.select("g[id='" + index + "']").append("path").attr("class", "connector").attr("transform", "translate(180,40)").attr("fill", "#e0e2e5").attr("d", arccont);
-                collapsed.select("g[id='" + index + "']").append("rect").attr("class", "connector").attr("x", 195).attr("y", 45).attr("width", 5).attr("height", 15).attr("fill", "#e0e2e5");
+                ycount = ycount + 220;""
+                collapsed.select("g[id='" + index + "']").append("path").attr("class", "connector").attr("transform", "translate(250,40)").attr("fill", "#000").attr("d", arccont);
+                collapsed.select("g[id='" + index + "']").append("rect").attr("class", "line_connector").attr("x", 270).attr("y", 40).attr("width", "1").attr("height", "170").attr("fill", "#000");
             };
         };
     };
@@ -758,3 +764,4 @@ function dragended(d) {
 // Adding the header
 
 $(".body").prepend($('<div><svg width="100%" height="20px"><line x1="0" y1="0" x2="100%" y2="0" style="stroke:rgb(0,0,0);stroke-width:12" /></svg></div><div class="floating-box1"><img src="img/LearningJourney.svg" alt="Learning Journey" style="width:60px;"></div><div class="floating-box2"><h1 class="title topictitle1">SAP HANA Development</h1></div><div style="margin-top:-5px;margin-right:28px;margin-left:28px"><svg width="100%" height="3px"><line x1="0" y1="0" x2="100%" y2="0" style="stroke:rgb(0,0,0);stroke-width:4" /></svg></div>'));
+$("rect#first.connector").replaceWith("<h2>New heading</h2>");
