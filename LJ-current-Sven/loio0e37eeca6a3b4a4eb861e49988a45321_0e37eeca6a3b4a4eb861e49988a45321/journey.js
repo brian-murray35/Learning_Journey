@@ -294,7 +294,7 @@ console.log(QstayCurrent);
             return xcounter + 0;
         }).attr("y", function () {
             return ycounter -20;
-        }).attr("font-size", "16px").attr("fill", "black").attr("font-family", "Arial, Sans-Serif").text("Join the SAP Learning Room").call(wrap, canvaswidth);
+        }).attr("font-size", "16px").attr("fill", "black").attr("font-family", "Bentonsans Light").text("Join the SAP Learning Room").call(wrap, canvaswidth);
         ycounter = ycounter + 1 * totalHeight;
         
         ycounter = renderPart(QlearningRooms, xcounter, ycounter,"learningRooms");
@@ -309,7 +309,7 @@ console.log(QstayCurrent);
             return xcounter + 0;
         }).attr("y", function () {
             return ycounter -20;
-        }).attr("font-size", "16px").attr("fill", "black").attr("font-family", "Arial, Sans-Serif").text("Start with an overview").call(wrap, canvaswidth);
+        }).attr("font-size", "16px").attr("fill", "black").attr("font-family", "Bentonsans Light").text("Start with an overview").call(wrap, canvaswidth);
         ycounter = ycounter + 1 * totalHeight;
         
         ycounter = renderPart(QgettingStarted, xcounter, ycounter,"gettingStarted");
@@ -324,7 +324,7 @@ console.log(QstayCurrent);
             return xcounter + 0;
         }).attr("y", function () {
             return ycounter +12;
-        }).attr("font-size", "16px").attr("fill", "black").attr("font-family", "Arial, Sans-Serif").text("Become fully competent").call(wrap, canvaswidth);
+        }).attr("font-size", "16px").attr("fill", "black").attr("font-family", "Bentonsans Light").text("Become fully competent").call(wrap, canvaswidth);
         ycounter = ycounter + 5 * totalHeight;
       
         var QfullyCompetentTopics =[];
@@ -334,11 +334,11 @@ console.log(QstayCurrent);
         QfullyCompetentTopics = $.uniqueSort(QfullyCompetentTopics);
                
         QfullyCompetentTopics.forEach(function (item) {
-            collapsed.append("text").attr("class", "headers").attr("fill", "black").attr("display", "block").attr("x", function () {
-                return xcounter + 20;
+            collapsed.append("text").attr("class", "headers").attr("fill", "black").attr("display", "block").attr("font-family", "Bentonsans Light").attr("x", function () {
+                return xcounter + 0;
             }).attr("y", function () {
                 return ycounter +20;
-            }).attr("font-size", "20px").text(function () {
+            }).attr("font-size", "12px").text(function () {
                 return item;
             }).call(wrap, canvaswidth);
             ycounter = ycounter + 20 * totalHeight;
@@ -389,13 +389,13 @@ console.log(QstayCurrent);
 
     
     if (QstayCurrent.length > 0) {
-        canvas.append("circle").attr("class", "marker").attr("cx", "90").attr("cy", ycounter -30).attr("r", "10").attr("stroke", "#f2b830").attr("stroke-width", "4").attr("fill", "white");
+        canvas.append("circle").attr("class", "marker").attr("cx", "90").attr("cy", ycounter -30).attr("r", "10").attr("stroke", "black").attr("stroke-width", "1").attr("fill", "blue");
         collapsed.append("text").attr("class", "headers").attr("fill", "black").attr("x", function () {
-            return xcounter + 20;
+            return xcounter + 0;
         }).attr("y", function () {
-            return ycounter -20;
-        }).attr("font-size", "16px").attr("fill", "black").attr("font-family", "Arial, Sans-Serif").text("Stay current").call(wrap, canvaswidth);
-        ycounter = ycounter + 30 * totalHeight;
+            return ycounter -25;
+        }).attr("font-size", "16px").attr("fill", "black").attr("font-family", "Bentonsans Light").text("Stay current").call(wrap, canvaswidth);
+        ycounter = ycounter + 0 * totalHeight;
         
         ycounter = renderPart(QstayCurrent, xcounter, ycounter,"stayCurrent");
     };
