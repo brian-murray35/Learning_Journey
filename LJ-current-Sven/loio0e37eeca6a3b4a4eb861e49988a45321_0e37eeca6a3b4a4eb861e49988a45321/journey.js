@@ -200,10 +200,10 @@ collapsed.selectAll("g").each(function (d, i) {
             d3.select(this).append("text").attr("fill", "black").attr("x", "5").attr("y", "45").attr("font-weight", "bold").attr("font-size", "15px").text(function () {
                 return tiledata[i][1].trim();
             }).call(wrap, 170);
-            d3.select(this).append("image").attr("x", 60).attr("y", 85).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/eLearning.svg")
-            d3.select(this).append("text").attr("fill", "#999999").attr("x", "102").attr("y", "140").attr("text-anchor", "end").attr("font-size", "8px").text("E-learning")
-            d3.select(this).append("image").attr("x", 125).attr("y", 85).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/Webinar.svg")
-            d3.select(this).append("text").attr("fill", "#999999").attr("x", "160").attr("y", "140").attr("text-anchor", "end").attr("font-size", "8px").text("Live Access")
+            d3.select(this).append("image").attr("x", 60).attr("y", 85).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/LearningRoom.svg")
+            d3.select(this).append("text").attr("fill", "#999999").attr("x", "102").attr("y", "140").attr("text-anchor", "end").attr("font-size", "8px").text("Classroom")
+            d3.select(this).append("image").attr("x", 125).attr("y", 85).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/eBook.svg")
+            d3.select(this).append("text").attr("fill", "#999999").attr("x", "160").attr("y", "140").attr("text-anchor", "end").attr("font-size", "8px").text("Ebook")
 			d3.select(this).append("text").attr("fill", "#666666").attr("font-size","11").attr("x", "235").attr("y", "20").attr("text-anchor", "end").text(function () {
                 return tiledata[i][5].trim()
             });
