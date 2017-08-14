@@ -502,7 +502,7 @@ function renderPart(Qarray, xcount, ycount, scenario) {
         y[index] = ycount;
         
         if (i == 0) {
-            collapsed.select("g[id='tile" + id + "']").attr("class", "connector").append("path").attr("d","M -40 0 L -25 15 L 0 15").attr("stroke", "#000").attr("stroke-width",1).attr("fill", "none");
+            collapsed.select("g[id='tile" + id + "']").attr("class", "connector").append("path").attr("d","M -40 0 L -25 15 L 0 15").attr("stroke", "#F0AB00").attr("stroke-width",1).attr("fill", "none");
         } else {
             if (xcount == 130) {
                 collapsed.select("g[id='tile" + id + "']").append("path").attr("class", "connector").attr("d","M 10 0 L 25 -10 L 50 -10").attr("stroke", "#000").attr("stroke-width",1).attr("fill", "none");

@@ -1,0 +1,190 @@
+<mapdriven:collected-data xmlns:enum="http://dita4publishers.org/enumerables"
+                          xmlns:applicability="http://dita4publishers.org/applicability"
+                          xmlns:index-terms="http://dita4publishers.org/index-terms"
+                          xmlns:mapdriven="http://dita4publishers.org/mapdriven">
+   <enum:enumerables>
+      <topicref xmlns="http://dita4publishers.org/enumerables" class="- map/topicref "
+                sourceId="id-42348--topicref-4-30-22"
+                xml:lang="en-us"
+                xtrc="topicref:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/18362942961d4ff282e0f279d454dbdd.ditamap"
+                type="reference"
+                topicID="loio6d5977f37a1d10148831c5b7c4e1b29b">
+         <title>Journey 101</title>
+         <table class="- topic/table "
+                sourceId="id-28026-loio6d5977f37a1d10148831c5b7c4e1b29b--table-6-1926-850"
+                xml:lang="en-us"
+                xtrc="table:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5977f37a1d10148831c5b7c4e1b29b.xml"/>
+         <table class="- topic/table "
+                sourceId="id-28026-loio6d5977f37a1d10148831c5b7c4e1b29b--LJ_STRUCTUREtable-35-1575-13099"
+                origId="LJ_STRUCTURE"
+                xml:lang="en-us"
+                xtrc="table:2"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5977f37a1d10148831c5b7c4e1b29b.xml"/>
+         <table class="- topic/table "
+                sourceId="id-28026-loio6d5977f37a1d10148831c5b7c4e1b29b--TILES_in_LJtable-386-0-58686"
+                origId="TILES_in_LJ"
+                xml:lang="en-us"
+                xtrc="table:3"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5977f37a1d10148831c5b7c4e1b29b.xml"/>
+      </topicref>
+      <topicref xmlns="http://dita4publishers.org/enumerables" class="- map/topicref "
+                sourceId="id-42348--topicref-9-25-22"
+                xml:lang="en-us"
+                xtrc="topicref:2"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/18362942961d4ff282e0f279d454dbdd.ditamap"
+                type="reference"
+                topicID="loio6d5b16557a1d1014bdd2ebabaf0a81b2">
+         <title>Journey 136</title>
+         <table class="- topic/table "
+                sourceId="id-33352-loio6d5b16557a1d1014bdd2ebabaf0a81b2--table-6-2620-802"
+                xml:lang="en-us"
+                xtrc="table:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5b16557a1d1014bdd2ebabaf0a81b2.xml"/>
+         <table class="- topic/table "
+                sourceId="id-33352-loio6d5b16557a1d1014bdd2ebabaf0a81b2--LJ_STRUCTUREtable-35-2141-17594"
+                origId="LJ_STRUCTURE"
+                xml:lang="en-us"
+                xtrc="table:2"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5b16557a1d1014bdd2ebabaf0a81b2.xml"/>
+         <table class="- topic/table "
+                sourceId="id-33352-loio6d5b16557a1d1014bdd2ebabaf0a81b2--TILES_in_LJtable-514-0-78283"
+                origId="TILES_in_LJ"
+                xml:lang="en-us"
+                xtrc="table:3"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5b16557a1d1014bdd2ebabaf0a81b2.xml"/>
+      </topicref>
+      <topicref xmlns="http://dita4publishers.org/enumerables" class="- map/topicref "
+                sourceId="id-42348--topicref-14-20-22"
+                xml:lang="en-us"
+                xtrc="topicref:3"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/18362942961d4ff282e0f279d454dbdd.ditamap"
+                type="reference"
+                topicID="loio6d5bd7f77a1d1014969ab0dc4a5cedd6">
+         <title>Journey 152</title>
+         <table class="- topic/table "
+                sourceId="id-9318-loio6d5bd7f77a1d1014969ab0dc4a5cedd6--table-6-1014-860"
+                xml:lang="en-us"
+                xtrc="table:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5bd7f77a1d1014969ab0dc4a5cedd6.xml"/>
+         <table class="- topic/table "
+                sourceId="id-9318-loio6d5bd7f77a1d1014969ab0dc4a5cedd6--LJ_STRUCTUREtable-35-823-6664"
+                origId="LJ_STRUCTURE"
+                xml:lang="en-us"
+                xtrc="table:2"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5bd7f77a1d1014969ab0dc4a5cedd6.xml"/>
+         <table class="- topic/table "
+                sourceId="id-9318-loio6d5bd7f77a1d1014969ab0dc4a5cedd6--TILES_in_LJtable-226-0-30980"
+                origId="TILES_in_LJ"
+                xml:lang="en-us"
+                xtrc="table:3"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5bd7f77a1d1014969ab0dc4a5cedd6.xml"/>
+      </topicref>
+      <topicref xmlns="http://dita4publishers.org/enumerables" class="- map/topicref "
+                sourceId="id-42348--topicref-19-15-22"
+                xml:lang="en-us"
+                xtrc="topicref:4"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/18362942961d4ff282e0f279d454dbdd.ditamap"
+                type="reference"
+                topicID="loio6d5df2dc7a1d1014ad0fa79380fca3ac">
+         <title>Journey 201</title>
+         <table class="- topic/table "
+                sourceId="id-44677-loio6d5df2dc7a1d1014ad0fa79380fca3ac--table-6-1898-855"
+                xml:lang="en-us"
+                xtrc="table:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5df2dc7a1d1014ad0fa79380fca3ac.xml"/>
+         <table class="- topic/table "
+                sourceId="id-44677-loio6d5df2dc7a1d1014ad0fa79380fca3ac--LJ_STRUCTUREtable-35-1547-12441"
+                origId="LJ_STRUCTURE"
+                xml:lang="en-us"
+                xtrc="table:2"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5df2dc7a1d1014ad0fa79380fca3ac.xml"/>
+         <table class="- topic/table "
+                sourceId="id-44677-loio6d5df2dc7a1d1014ad0fa79380fca3ac--TILES_in_LJtable-386-0-57269"
+                origId="TILES_in_LJ"
+                xml:lang="en-us"
+                xtrc="table:3"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5df2dc7a1d1014ad0fa79380fca3ac.xml"/>
+      </topicref>
+      <topicref xmlns="http://dita4publishers.org/enumerables" class="- map/topicref "
+                sourceId="id-42348--topicref-24-10-20"
+                xml:lang="en-us"
+                xtrc="topicref:5"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/18362942961d4ff282e0f279d454dbdd.ditamap"
+                type="reference"
+                topicID="loio6d6074907a1d10148ba1db64bc61d913">
+         <title>Journey 80</title>
+         <table class="- topic/table "
+                sourceId="id-48999-loio6d6074907a1d10148ba1db64bc61d913--table-6-2011-766"
+                xml:lang="en-us"
+                xtrc="table:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d6074907a1d10148ba1db64bc61d913.xml"/>
+         <table class="- topic/table "
+                sourceId="id-48999-loio6d6074907a1d10148ba1db64bc61d913--LJ_STRUCTUREtable-35-1644-12706"
+                origId="LJ_STRUCTURE"
+                xml:lang="en-us"
+                xtrc="table:2"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d6074907a1d10148ba1db64bc61d913.xml"/>
+         <table class="- topic/table "
+                sourceId="id-48999-loio6d6074907a1d10148ba1db64bc61d913--TILES_in_LJtable-402-0-61399"
+                origId="TILES_in_LJ"
+                xml:lang="en-us"
+                xtrc="table:3"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d6074907a1d10148ba1db64bc61d913.xml"/>
+      </topicref>
+      <topicref xmlns="http://dita4publishers.org/enumerables" class="- map/topicref "
+                sourceId="id-42348--topicref-29-5-20"
+                xml:lang="en-us"
+                xtrc="topicref:6"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/18362942961d4ff282e0f279d454dbdd.ditamap"
+                type="reference"
+                topicID="loio6d5f54187a1d1014834892cdbae7395d">
+         <title>Journey 50</title>
+         <table class="- topic/table "
+                sourceId="id-34942-loio6d5f54187a1d1014834892cdbae7395d--table-6-1178-886"
+                xml:lang="en-us"
+                xtrc="table:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5f54187a1d1014834892cdbae7395d.xml"/>
+         <table class="- topic/table "
+                sourceId="id-34942-loio6d5f54187a1d1014834892cdbae7395d--LJ_STRUCTUREtable-35-955-8017"
+                origId="LJ_STRUCTURE"
+                xml:lang="en-us"
+                xtrc="table:2"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5f54187a1d1014834892cdbae7395d.xml"/>
+         <table class="- topic/table "
+                sourceId="id-34942-loio6d5f54187a1d1014834892cdbae7395d--TILES_in_LJtable-258-0-37602"
+                origId="TILES_in_LJ"
+                xml:lang="en-us"
+                xtrc="table:3"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5f54187a1d1014834892cdbae7395d.xml"/>
+      </topicref>
+      <topicref xmlns="http://dita4publishers.org/enumerables" class="- map/topicref "
+                sourceId="id-42348--topicref-34-0-22"
+                xml:lang="en-us"
+                xtrc="topicref:7"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/18362942961d4ff282e0f279d454dbdd.ditamap"
+                type="reference"
+                topicID="loio6d5a67117a1d101494be921bc86a9190">
+         <title>Journey 121</title>
+         <table class="- topic/table "
+                sourceId="id-41536-loio6d5a67117a1d101494be921bc86a9190--table-6-895-787"
+                xml:lang="en-us"
+                xtrc="table:1"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5a67117a1d101494be921bc86a9190.xml"/>
+         <table class="- topic/table "
+                sourceId="id-41536-loio6d5a67117a1d101494be921bc86a9190--LJ_STRUCTUREtable-35-720-5859"
+                origId="LJ_STRUCTURE"
+                xml:lang="en-us"
+                xtrc="table:2"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5a67117a1d101494be921bc86a9190.xml"/>
+         <table class="- topic/table "
+                sourceId="id-41536-loio6d5a67117a1d101494be921bc86a9190--TILES_in_LJtable-210-0-26312"
+                origId="TILES_in_LJ"
+                xml:lang="en-us"
+                xtrc="table:3"
+                docUri="file:/n:/jrh1493550499249/win64_x64/release/obj/en-US_loio5bc9d0170881423a865d1e60519addf6/html500lj/en-US/release/temp/6d5a67117a1d101494be921bc86a9190.xml"/>
+      </topicref>
+   </enum:enumerables>
+   <glossdata:glossary-entries xmlns:glossdata="http://dita4publishers.org/glossdata"/>
+</mapdriven:collected-data>
