@@ -147,6 +147,7 @@ collapsed.selectAll("g").each(function (d, i) {
             d3.select(this).append("text").attr("fill", "#999999").attr("x", "95").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("Live Access")
             d3.select(this).append("image").attr("x", 100).attr("y", 110).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/eBook.svg")
             d3.select(this).append("text").attr("fill", "#999999").attr("x", "125").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("E-book")
+			
             d3.select(this).append("text").attr("fill", "black").attr("x", "170").attr("y", "20").attr("text-anchor", "end").text(function () {
                 return tiledata[i][2].trim()
             });
@@ -158,11 +159,8 @@ collapsed.selectAll("g").each(function (d, i) {
                 return tiledata[i][1].trim();
             }).call(wrap, 170);
             d3.select(this).append("circle").attr("cx", "15").attr("cy", "15").attr("r", "10").style("stroke", "black").attr("fill", "white");
-            d3.select(this).append("image").attr("x", 50).attr("y", 110).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/eLearning.svg")
-            d3.select(this).append("text").attr("fill", "#999999").attr("x", "80").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("E-learning")
-            
-            d3.select(this).append("image").attr("x", 100).attr("y", 110).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/LearningRoom.svg")
-            d3.select(this).append("text").attr("fill", "#999999").attr("x", "130").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("Classroom")
+            d3.select(this).append("image").attr("x", 105).attr("y", 85).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/eLearning.svg")
+            d3.select(this).append("text").attr("fill", "#999999").attr("x", "140").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("E-learning")
             break;
 /*            case "Certification": //Certification
             d3.select(this).select("rect").attr("fill", "white");
@@ -177,16 +175,14 @@ collapsed.selectAll("g").each(function (d, i) {
             case "Certification": //Certification
 			 d3.select(this).append("path").attr("d","M 15 0 L 30 15 L 15 30").attr("stroke", "#000").attr("stroke-width",1).attr("fill", "none");
 			  d3.select(this).append("path").attr("d","M 25 0 L 40 15 L 25 30").attr("stroke", "#000").attr("stroke-width",1).attr("fill", "none");
-             d3.select(this).append("rect").attr("x",55).attr("y",0).attr("width","248px").attr("height","150px").attr("stroke", "#000").attr("stroke-width", "1").attr("rx", 7).attr("ry", 7).attr("fill", "gray");
-            d3.select(this).append("text").attr("fill", "white").attr("x", "145").attr("y", "45").attr("text-anchor", "middle").attr("font-weight", "bold").attr("font-size", "16px").text(function (d) {
+             d3.select(this).append("rect").attr("x",55).attr("y",0).attr("width","248px").attr("height","150px").attr("stroke", "#000").attr("stroke-width", "1").attr("rx", 7).attr("ry", 7).attr("fill", "none");
+            d3.select(this).append("text").attr("fill", "black").attr("x", "145").attr("y", "45").attr("text-anchor", "middle").attr("font-weight", "bold").attr("font-size", "16px").text(function (d) {
                 return tiledata[i][1].trim();
             }).call(wrap, 170);
             d3.select(this).append("circle").attr("cx", "70").attr("cy", "15").attr("r", "10").style("stroke", "black").attr("fill", "white");
-            d3.select(this).append("image").attr("x", 105).attr("y", 85).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/eLearning.svg")
-            d3.select(this).append("text").attr("fill", "#999999").attr("x", "150").attr("y", "140").attr("text-anchor", "end").attr("font-size", "8px").text("E-learning")
-            d3.select(this).append("image").attr("x", 155).attr("y", 85).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/eBook.svg")
-            d3.select(this).append("text").attr("fill", "#999999").attr("x", "195").attr("y", "140").attr("text-anchor", "end").attr("font-size", "8px").text("E-book")
-            d3.select(this).append("text").attr("fill", "white").attr("x", "200").attr("y", "20").attr("text-anchor", "end").text(function () {
+            d3.select(this).append("image").attr("x", 150).attr("y", 85).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/Certification.svg")
+            d3.select(this).append("text").attr("fill", "#999999").attr("x", "150").attr("y", "140").attr("text-anchor", "end").attr("font-size", "8px").text("")
+            d3.select(this).append("text").attr("fill", "black").attr("x", "290").attr("y", "20").attr("text-anchor", "end").text(function () {
                 return tiledata[i][2].trim()
             });
             break;
@@ -204,7 +200,11 @@ collapsed.selectAll("g").each(function (d, i) {
             d3.select(this).append("text").attr("fill", "black").attr("x", "5").attr("y", "45").attr("font-weight", "bold").attr("font-size", "15px").text(function () {
                 return tiledata[i][1].trim();
             }).call(wrap, 170);
-            d3.select(this).append("text").attr("fill", "black").attr("x", "235").attr("y", "20").attr("text-anchor", "end").text(function () {
+            d3.select(this).append("image").attr("x", 60).attr("y", 85).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/LearningRoom.svg")
+            d3.select(this).append("text").attr("fill", "#999999").attr("x", "102").attr("y", "140").attr("text-anchor", "end").attr("font-size", "8px").text("Classroom")
+            d3.select(this).append("image").attr("x", 125).attr("y", 85).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/eBook.svg")
+            d3.select(this).append("text").attr("fill", "#999999").attr("x", "160").attr("y", "140").attr("text-anchor", "end").attr("font-size", "8px").text("Ebook")
+			d3.select(this).append("text").attr("fill", "#666666").attr("font-size","11").attr("x", "235").attr("y", "20").attr("text-anchor", "end").text(function () {
                 return tiledata[i][5].trim()
             });
 
@@ -294,7 +294,7 @@ console.log(QstayCurrent);
             return xcounter + 0;
         }).attr("y", function () {
             return ycounter -20;
-        }).attr("font-size", "16px").attr("fill", "black").attr("font-family", "Arial, Sans-Serif").text("Join the SAP Learning Room").call(wrap, canvaswidth);
+        }).attr("font-size", "16px").attr("fill", "black").attr("font-family", "Bentonsans Light").text("Join the SAP Learning Room").call(wrap, canvaswidth);
         ycounter = ycounter + 1 * totalHeight;
         
         ycounter = renderPart(QlearningRooms, xcounter, ycounter,"learningRooms");
@@ -309,7 +309,7 @@ console.log(QstayCurrent);
             return xcounter + 0;
         }).attr("y", function () {
             return ycounter -20;
-        }).attr("font-size", "16px").attr("fill", "black").attr("font-family", "Arial, Sans-Serif").text("Start with an overview").call(wrap, canvaswidth);
+        }).attr("font-size", "16px").attr("fill", "black").attr("font-family", "Bentonsans Light").text("Start with an overview").call(wrap, canvaswidth);
         ycounter = ycounter + 1 * totalHeight;
         
         ycounter = renderPart(QgettingStarted, xcounter, ycounter,"gettingStarted");
@@ -324,7 +324,7 @@ console.log(QstayCurrent);
             return xcounter + 0;
         }).attr("y", function () {
             return ycounter +12;
-        }).attr("font-size", "16px").attr("fill", "black").attr("font-family", "Arial, Sans-Serif").text("Become fully competent").call(wrap, canvaswidth);
+        }).attr("font-size", "16px").attr("fill", "black").attr("font-family", "Bentonsans Light").text("Become fully competent").call(wrap, canvaswidth);
         ycounter = ycounter + 5 * totalHeight;
       
         var QfullyCompetentTopics =[];
@@ -334,11 +334,11 @@ console.log(QstayCurrent);
         QfullyCompetentTopics = $.uniqueSort(QfullyCompetentTopics);
                
         QfullyCompetentTopics.forEach(function (item) {
-            collapsed.append("text").attr("class", "headers").attr("fill", "black").attr("display", "block").attr("x", function () {
-                return xcounter + 20;
+            collapsed.append("text").attr("class", "headers").attr("fill", "black").attr("display", "block").attr("font-family", "Bentonsans Light").attr("x", function () {
+                return xcounter + 0;
             }).attr("y", function () {
                 return ycounter +20;
-            }).attr("font-size", "20px").text(function () {
+            }).attr("font-size", "12px").text(function () {
                 return item;
             }).call(wrap, canvaswidth);
             ycounter = ycounter + 20 * totalHeight;
@@ -389,13 +389,13 @@ console.log(QstayCurrent);
 
     
     if (QstayCurrent.length > 0) {
-        canvas.append("circle").attr("class", "marker").attr("cx", "90").attr("cy", ycounter -30).attr("r", "10").attr("stroke", "#f2b830").attr("stroke-width", "4").attr("fill", "white");
+        canvas.append("circle").attr("class", "marker").attr("cx", "90").attr("cy", ycounter -30).attr("r", "10").attr("stroke", "black").attr("stroke-width", "1").attr("fill", "blue");
         collapsed.append("text").attr("class", "headers").attr("fill", "black").attr("x", function () {
-            return xcounter + 20;
+            return xcounter + 0;
         }).attr("y", function () {
-            return ycounter -20;
-        }).attr("font-size", "16px").attr("fill", "black").attr("font-family", "Arial, Sans-Serif").text("Stay current").call(wrap, canvaswidth);
-        ycounter = ycounter + 30 * totalHeight;
+            return ycounter -25;
+        }).attr("font-size", "16px").attr("fill", "black").attr("font-family", "Bentonsans Light").text("Stay current").call(wrap, canvaswidth);
+        ycounter = ycounter + 0 * totalHeight;
         
         ycounter = renderPart(QstayCurrent, xcounter, ycounter,"stayCurrent");
     };
@@ -502,7 +502,7 @@ function renderPart(Qarray, xcount, ycount, scenario) {
         y[index] = ycount;
         
         if (i == 0) {
-            collapsed.select("g[id='tile" + id + "']").attr("class", "connector").append("path").attr("d","M -40 0 L -25 15 L 0 15").attr("stroke", "#000").attr("stroke-width",1).attr("fill", "none");
+            collapsed.select("g[id='tile" + id + "']").attr("class", "connector").append("path").attr("d","M -40 0 L -25 15 L 0 15").attr("stroke", "#F0AB00").attr("stroke-width",1).attr("fill", "none");
         } else {
             if (xcount == 130) {
                 collapsed.select("g[id='tile" + id + "']").append("path").attr("class", "connector").attr("d","M 10 0 L 25 -10 L 50 -10").attr("stroke", "#000").attr("stroke-width",1).attr("fill", "none");
@@ -514,7 +514,7 @@ function renderPart(Qarray, xcount, ycount, scenario) {
         if (xcount + 220 < canvaswidth -220) {
             xcount = xcount + 267;
             if (i < Qarray.length -1) {
-                collapsed.select("g[id='tile" + id + "']").append("rect").attr("class", "connector").attr("x", 248).attr("y", 15).attr("width", 45).attr("height", 1).attr("fill", "#000");
+                collapsed.select("g[id='tile" + id + "']").append("rect").attr("class", "connector").attr("x", 248).attr("y", 15).attr("width", 20).attr("height", 1).attr("fill", "#000");
             };
         } else {
             xcount = 130;
