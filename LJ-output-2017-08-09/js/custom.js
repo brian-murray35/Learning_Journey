@@ -1,5 +1,8 @@
 $(document).ready(function () {
-    
+
+    // Journey title
+    var journeyTitle = $("td[id$='journey_title'] p").text().trim();
+
     // Prepare data for learning journey - structure data
     var table =[];
     
@@ -724,5 +727,5 @@ $(document).ready(function () {
         });
     }
     
-    $(".body").prepend($('<div><svg width="100%" height="20px"><line x1="0" y1="0" x2="100%" y2="0" style="stroke:rgb(0,0,0);stroke-width:12" /></svg></div><div class="floating-box1"><img src="img/LearningJourney.svg" alt="Learning Journey" style="width:60px;"></div><div class="floating-box2"><h1 class="title topictitle1">SAP HANA Development</h1></div><div style="margin-top:-5px;margin-right:24px;margin-left:28px"><svg width="100%" height="3px"><line x1="0" y1="0" x2="100%" y2="0" style="stroke:rgb(0,0,0);stroke-width:4" /></svg></div>'));
+    $(".body").prepend($('<div><svg width="100%" height="20px"><line x1="0" y1="0" x2="100%" y2="0" style="stroke:rgb(0,0,0);stroke-width:12" /></svg></div><div class="floating-box1"><img src="img/LearningJourney.svg" alt="Learning Journey" style="width:60px;"></div><div class="floating-box2"><h1 class="title topictitle1">' + journeyTitle + '</h1></div><div style="margin-top:-5px;margin-right:24px;margin-left:28px"><svg width="100%" height="3px"><line x1="0" y1="0" x2="100%" y2="0" style="stroke:rgb(0,0,0);stroke-width:4" /></svg></div>'));
 })
