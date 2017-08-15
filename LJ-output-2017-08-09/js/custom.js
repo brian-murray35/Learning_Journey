@@ -134,10 +134,10 @@ $(document).ready(function () {
             d3.select(this).append("text").attr("fill", "#666666").attr("font-size","11").attr("x", "235").attr("y", "20").attr("text-anchor", "end").text(function () {
                 return tiledata[i][5].trim()});
             d3.select(this).append("circle").attr("cx", "15").attr("cy", "15").attr("r", "10").attr("fill", "white").style("stroke", "black");
-            d3.select(this).append("image").attr("x", 60).attr("y", 110).attr("width", "49px").attr("height", "49px").attr("xlink:href", "img/Webinar.svg");
-            d3.select(this).append("text").attr("fill", "#999999").attr("x", "95").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("Live Access");
-            d3.select(this).append("image").attr("x", 100).attr("y", 110).attr("width", "49px").attr("height", "49px").attr("xlink:href", "img/eBook.svg");
-            d3.select(this).append("text").attr("fill", "#999999").attr("x", "125").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("E-book");
+            d3.select(this).append("image").attr("x", 70).attr("y", 85).attr("width", "49px").attr("height", "49px").attr("xlink:href", "img/Webinar.svg");
+            d3.select(this).append("text").attr("fill", "#999999").attr("x", "115").attr("y", "140").attr("text-anchor", "end").attr("font-size", "8px").text("Live Access");
+            d3.select(this).append("image").attr("x", 125).attr("y", 85).attr("width", "49px").attr("height", "49px").attr("xlink:href", "img/eBook.svg");
+            d3.select(this).append("text").attr("fill", "#999999").attr("x", "162").attr("y", "140").attr("text-anchor", "end").attr("font-size", "8px").text("E-book");
             break;
             case "Early Knowledge Transfer (EKT)": //e-Learning
             d3.select(this).append("rect").attr("x", 0).attr("y", 0).attr("width", "248px").attr("height", "150px").attr("stroke", "#000").attr("stroke-width", "1").attr("rx", 7).attr("ry", 7).attr("fill", "white");
