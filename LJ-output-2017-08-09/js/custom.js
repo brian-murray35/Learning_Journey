@@ -110,7 +110,7 @@ $(document).ready(function () {
     collapsed.selectAll("g").each(function (d, i) {
         switch (tiledata[i][5].trim()) {
             case "Learning Room": //Learning Room
-            d3.select(this).append("rect").attr("x", 0).attr("y", 0).attr("width", "248px").attr("height", "150px").attr("stroke", "#000").attr("stroke-width", "1").attr("rx", 7).attr("ry", 7).attr("fill", "white");
+            d3.select(this).append("rect").attr("x", 0).attr("y", 0).attr("width", "348px").attr("height", "150px").attr("stroke", "#000").attr("stroke-width", "1").attr("rx", 7).attr("ry", 7).attr("fill", "white");
             d3.select(this).append("text").attr("fill", "#666666").attr("x", "165").attr("y", "15").attr("font-size", "11px").attr("font-family", "Arial, Sans-Serif").text("Learning Room");
             d3.select(this).append("text").attr("fill", "black").attr("x", "5").attr("y", "45").attr("width", "248px").attr("font-weight", "bold").attr("font-size", "15px").text(function () {
                 return tiledata[i][1].trim();
@@ -128,7 +128,7 @@ $(document).ready(function () {
             case "openSAP": //OpenSAP
             d3.select(this).append("rect").attr("x", 0).attr("y", 0).attr("width", "248px").attr("height", "150px").attr("stroke", "#000").attr("stroke-width", "1").attr("rx", 7).attr("ry", 7).attr("fill", "white");
             //            d3.select(this).select("rect").attr("fill", "white");
-            d3.select(this).append("text").attr("fill", "black").attr("x", "5").attr("y", "45").attr("font-size", "15px").text(function () {
+            d3.select(this).append("text").attr("fill", "black").attr("x", "5").attr("y", "45").attr("width", "248px").attr("font-weight", "bold").attr("font-size", "15px").text(function () {
                 return tiledata[i][1].trim();
             }).call(wrap, 170);
             d3.select(this).append("text").attr("fill", "#666666").attr("font-size","11").attr("x", "235").attr("y", "20").attr("text-anchor", "end").text(function () {
