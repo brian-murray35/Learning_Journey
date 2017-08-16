@@ -175,8 +175,8 @@ $(document).ready(function () {
             }).call(wrap, 170);
             d3.select(this).append("text").attr("fill", "#666666").attr("font-size","11").attr("x", "235").attr("y", "20").attr("text-anchor", "end").text(function () {
                 return tiledata[i][5].trim()});
-            d3.select(this).append("path").attr("d", "M -30 0 L -15 15 L -30 30").attr("stroke", "#000").attr("stroke-width", 1).attr("fill", "none");
-            d3.select(this).append("path").attr("d", "M -15 0 L 0 15 L -15 30").attr("stroke", "#000").attr("stroke-width", 1).attr("fill", "none");
+             d3.select(this).append("path").attr("d", "M -25 5 L -15 15 L -25 25").attr("stroke", "#F0AB00").attr("stroke-width", 2).attr("fill", "none");
+            d3.select(this).append("path").attr("d", "M -15 5 L -5 15 L -15 25").attr("stroke", "#F0AB00").attr("stroke-width", 2).attr("fill", "none");
             d3.select(this).append("image").attr("x", 100).attr("y", 85).attr("width", "49px").attr("height", "49px").attr("xlink:href", "img/Certification.svg")
             break;
             case "10": // Stay current (e-Learning)
