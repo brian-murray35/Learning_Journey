@@ -94,7 +94,7 @@ $(document).ready(function () {
     // Prepare basic svg containers and elements
 
     // insert main svg graphic into html body, define canvas for LJ
-    var svg = d3.select(".refbody").insert("svg", "div").attr("width", "100%").attr("height", 2000).attr("id", "main_svg2");
+    var svg = d3.select(".refbody").insert("svg", "div").attr("width", "100%").attr("height", 9999).attr("id", "main_svg2");
     var roadmap = svg.append("g").attr("id", "roadmap");
     var tileContainer = svg.append("g").attr("id", "tile-container");
 
@@ -103,7 +103,7 @@ $(document).ready(function () {
         .attr("x1", ROADMAP_LEFT_MARGIN)
         .attr("y1", ROADMAP_TOP_MARGIN)
         .attr("x2", ROADMAP_LEFT_MARGIN)
-        .attr("y2", 2000) // y2 will be calculated after tiles are rendered
+        .attr("y2", 9999) // y2 will be calculated after tiles are rendered
         .attr("stroke", "#000")
         .attr("stroke-width", "1");
 
@@ -340,6 +340,7 @@ $(document).ready(function () {
     // render Topic and position the tiles. After will return next yposition (to place next topic)
     function renderTopic(scenarioID, Qtiles, topicTitle, xposition, yposition) {
         var topicgridrows = _calculateTopicGridRows(Qtiles.length); // number of rows needed to render topic
+        var maxtilesinarow = _calculateMaxTilesPerRow(); // max number of tiles in the same row
         var xpositionInitial = xposition;
         for (i = 0; i < Qtiles.length; i++) {
             // Render Topic Title
@@ -363,13 +364,13 @@ $(document).ready(function () {
             // translate to the right position
             tileContainer.select("g[id='tile" + id + "']").attr("transform", "translate(" + xposition + "," + yposition + ")");
             // checks if tiles needs to be rendered in same row or new row
-            if ((i+1) % topicgridrows === 0) {
-                // same row: sum previous tiles widths
-                xposition += TILE_WIDTH + ROADMAP_RIGHT_MARGIN;
-            } else {
+            if ((i+1) % maxtilesinarow === 0 && (i+1) < Qtiles.length) {
                 // new row: reset xposition 
                 xposition = xpositionInitial;
                 yposition += TILE_HEIGHT + TILE_BOTTOM_MARGIN;
+            } else {
+                // same row: sum previous tiles widths
+                xposition += TILE_WIDTH + ROADMAP_RIGHT_MARGIN;
             }
 
             // Add connectors
@@ -516,9 +517,20 @@ $(document).ready(function () {
     // calculate rows needed in Topic grid to render Tiles
     function _calculateTopicGridRows(numberOfTiles) {
         var refbodyWidth = $(".refbody").width();
+        var sizeOfOneTile = (TILE_WIDTH + ROADMAP_RIGHT_MARGIN);
         var renderingWidthAvailable = (refbodyWidth < 320 ? 320 : refbodyWidth ) - (ROADMAP_LEFT_MARGIN + ROADMAP_RIGHT_MARGIN);
-        var totalRowsWidth = numberOfTiles * (TILE_WIDTH + ROADMAP_RIGHT_MARGIN);
+        var totalRowsWidth = numberOfTiles * sizeOfOneTile;
         return Math.ceil(totalRowsWidth / renderingWidthAvailable);
+    };
+
+    // calculate max tiles that fits it a row in Topic grid
+    function _calculateMaxTilesPerRow() {
+        var refbodyWidth = $(".refbody").width();
+        var sizeOfOneTile = (TILE_WIDTH + ROADMAP_RIGHT_MARGIN);
+        var renderingWidthAvailable = (refbodyWidth < 320 ? 320 : refbodyWidth ) - (ROADMAP_LEFT_MARGIN + ROADMAP_RIGHT_MARGIN);
+        var maxNumberOfTiles = Math.floor(renderingWidthAvailable / sizeOfOneTile);
+        // never returns 0 rows. Minimum is always 1 row
+        return maxNumberOfTiles === 0 ? 1 : maxNumberOfTiles;
     };
 
     $(".body").prepend($('<div><svg width="100%" height="20px"><line x1="0" y1="0" x2="100%" y2="0" style="stroke:rgb(0,0,0);stroke-width:12" /></svg></div><div class="floating-box1"><img src="img/LearningJourney.svg" alt="Learning Journey" style="width:60px;"></div><div class="floating-box2"><h1 class="title topictitle1">' + journeyTitle + '</h1></div><div style="margin-top:-5px;margin-right:24px;margin-left:28px"><svg width="100%" height="3px"><line x1="0" y1="0" x2="100%" y2="0" style="stroke:rgb(0,0,0);stroke-width:4" /></svg></div>'));
