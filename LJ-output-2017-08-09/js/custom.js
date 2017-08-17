@@ -76,23 +76,23 @@ $(document).ready(function () {
         }
     });
 
-    // Constraints
+    // Constraints in pixels
     var ROADMAP_TOP_MARGIN = 30; // top margin of roadmap
     var ROADMAP_LEFT_MARGIN = 25; // left margin of roadmap
     var ROADMAP_RIGHT_MARGIN = 18; // right margin of roadmap
     var SCENARIO_MARKER_RADIUS = 7; // Circle radius in scenario
+    var SCENARIO_TITLE_FONT_SIZE = 21; // Scenario title font size
+    var SCENARIO_TITLE_BOTTOM_MARGIN = 18; // bottom margin of scenario title
     var TILE_MARKER_RADIUS = 7; // Circle radius in Tile
     var TILE_MARKER_MARGIN = 6; // Circle Top and Left margin in Tile
     var TILE_WIDTH = 248; // Tile Width
     var TILE_HEIGHT = 188; // Tile Height
     var TILE_BOTTOM_MARGIN = 30; // Tile Bottom margin
     
-
-
     // Prepare basic svg containers and elements
 
     // insert main svg graphic into html body, define canvas for LJ
-    var svg = d3.select(".refbody").insert("svg", "div").attr("width", "100%").attr("height", "2480").attr("id", "main_svg2");
+    var svg = d3.select(".refbody").insert("svg", "div").attr("width", "100%").attr("height", 2000).attr("id", "main_svg2");
     var roadmap = svg.append("g").attr("id", "roadmap");
     var tileContainer = svg.append("g").attr("id", "tile-container");
 
@@ -101,11 +101,9 @@ $(document).ready(function () {
         .attr("x1", ROADMAP_LEFT_MARGIN)
         .attr("y1", ROADMAP_TOP_MARGIN)
         .attr("x2", ROADMAP_LEFT_MARGIN)
-        .attr("y2", "1500")
+        .attr("y2", 2000) // y2 will be calculated after tiles are rendered
         .attr("stroke", "#000")
         .attr("stroke-width", "1");
-
-
 
 
 
@@ -119,33 +117,16 @@ $(document).ready(function () {
     window.onresize = function (event) {
         var newWidth = $(window).width();
         var newRefbody = $(".refbody").width();
-        // preventing svg area be smaller than 320px (mobile @media min size)
-        console.log(newRefbody);
+        // preventing svg area be smaller than 320px (mobile @media min-size)
         if (newWidth > 320) {
-            $("#main_svg").attr("width", newRefbody);
+            $("#main_svg2").attr("width", newRefbody);
         } else {
-            $("#main_svg").attr("width", 500);
+            $("#main_svg2").attr("width", 320);
         }
-        // svg.attr("width", newWidth -300);
-        // roadmap.select("#main").attr("width", newWidth -248);
-        // canvaswidth = newWidth -248;
 
         updateSVG();
     };
 
-
-
-    // Create div for display of tooltips (invisible normally, and attached later temporarily to elements on mouseover)
-    var div = d3.select(".refbody").append("div").attr("id", "container").attr("width", "248px");
-    $("#container").hide();
-    
-    d3.select("#container").insert("svg", "div").attr("width", "248px").attr("height", "150px").append("g").attr("id", "tile").attr("width", "150px");
-    
-    // define trigger event on table cells to show individual tile as mouseover - to be used in tile browser topic
-    /* not relevant here at the moment
-    $("td.entry").mouseenter(function(){hoverdiv(event,'container')});
-    $("td.entry").mouseleave(function(){hoverout('container')});
-     */
     // Define 'normal' svg content containers (asset tiles) from data (normal here means tileContainer, if we later add the capability to optionally expand tiles)
     tileContainer.selectAll("g").data(LJTileData).enter().append("g").attr("id", function (d, i) {
         //    return i;
@@ -154,14 +135,6 @@ $(document).ready(function () {
     
     // add basic tile background rectangle to each tileContainer asset tile --> no, define those as part of the individual tile layout...
     //tileContainer.selectAll("g").append("rect").attr("x", x).attr("y", y).attr("width", "248px").attr("height", "150px").attr("stroke", "#000").attr("stroke-width", "1").attr("rx", 7).attr("ry", 7);
-    
-    // margin for what?
-    var margin = {
-        top: 20,
-        right: 60,
-        bottom: 30,
-        left: 20
-    };
     
     // tileContainer.selectAll("g rect").attr("stroke-width", "10").style("margin-right", "248px");
     
@@ -268,6 +241,7 @@ $(document).ready(function () {
         // remove all connector elements so that we have a "clean" canvas
         roadmap.selectAll("circle.scenarioMarker").remove();
         roadmap.selectAll("text.scenarioHeader").remove();
+        tileContainer.selectAll("text.topicHeader").remove();
         tileContainer.selectAll("g path.in-connector").remove();
         tileContainer.selectAll("g path.tileContainer-out-connector").remove();
         tileContainer.selectAll("g path.tileContainer-in-connector").remove();
@@ -279,6 +253,15 @@ $(document).ready(function () {
         xcount = 130; // initial x value when starting to render journey
         ycount = 30; // initial y value when starting to render journey
 
+        
+
+        // initialize tile placement arrays ([x[i] and y[i] will later determine the absolute placement of tile i within the LJ svg)
+        for (i = 0; i < LJTileData.length; i++) {
+            x[i] = 0;
+            y[i] = 0;
+        };
+
+        // TODO: move this to init part, as it won't need to be mapped every screen resize (also the for loop)
         var Qscenarios =[];
             Qscenarios[1] =[];
             Qscenarios[2] =[];
@@ -286,12 +269,6 @@ $(document).ready(function () {
             Qscenarios[4] =[];
             Qscenarios[5] =[];
 
-        // initialize tile placement arrays ([x[i] and y[i] will later determine the absolute placement of tile i within the LJ svg)
-        for (i = 0; i < LJTileData.length; i++) {
-            x[i] = 0;
-            y[i] = 0;
-        };
-        
         // push tile id values into respective learning scenario arrays, for later placement into LJ graphic
         for (k = 0; k < LJTileData.length; k++) {
             switch (LJStructureData[k].scenarioID) {
@@ -312,7 +289,6 @@ $(document).ready(function () {
                 break
             }
         };
-        
         
         for (k = 1; k < 6; k++) {
             // renderScenario only if there are tiles in it (length > 0)
@@ -339,16 +315,16 @@ $(document).ready(function () {
             .style("fill", generateScenarioColor(scenarioID));
         roadmap.append("text")
             .attr("class", "scenarioHeader")
-            .attr("fill", "#222222")
             .attr("x", xposition)
-            .attr("y", yposition + 10) // top 10px to vertical align text in the middle
-            .attr("font-size", "21pt")
+            .attr("y", yposition + (SCENARIO_TITLE_FONT_SIZE/2) - 3) //vertical align text in the middle (fontsize / 2) - 3px (magic number)
+            .attr("font-size", SCENARIO_TITLE_FONT_SIZE)
             .attr("fill", "#222")
             .attr("font-family", "Arial Regular")
             .text(generateScenarioHeader(scenarioID))
             .call(wrap, canvaswidth);
 
-        // yposition = yposition + 20 * totalHeight;
+        //add font size
+        yposition += SCENARIO_TITLE_FONT_SIZE;
         
         var Qtopics = [];
 
@@ -362,7 +338,7 @@ $(document).ready(function () {
             return Qtopics.indexOf(elem) === pos
         });
         
-        yposition += 28; // 18px distance between Scenario Title and tile + 10px
+        yposition += SCENARIO_TITLE_BOTTOM_MARGIN; // distance between Scenario Title and tile
 
         Qtopics.forEach(function (item) {
             
@@ -378,17 +354,29 @@ $(document).ready(function () {
     
     // render Topic and position the tiles. After will return next yposition (to place next topic)
     function renderTopic(scenarioID, Qtiles, topicTitle, xposition, yposition) {
-        console.log("Qtiles length ", Qtiles.length);
         var topicgridrows = _calculateTopicGridRows(Qtiles.length); // number of rows needed to render topic
         var xpositionInitial = xposition;
         for (i = 0; i < Qtiles.length; i++) {
+
+            // Render Topic Title
+            if (i === 0 && topicTitle && topicTitle !== "") {
+                tileContainer.append("text")
+                    .attr("class", "topicHeader")
+                    .attr("fill", "black")
+                    .attr("display", "block")
+                    .attr("x", xposition)
+                    .attr("y", yposition)
+                    .attr("font-size", "14px")
+                    .text(topicTitle)
+                    .call(wrap, $(".refbody").width());
+                yposition += 21;
+            }
+
+            // Render Tile
             var index = Qtiles[i];
-            
             var id = LJStructureData[index].tileID;
             tileContainer.select("g[id='tile" + id + "'] circle").attr("fill", generateScenarioColor(scenarioID));
-            tileContainer.select("g[id='tile" + id + "']")
-                .attr("transform", "translate(" + xposition + "," + yposition + ")"); // translate to the right position
-                // .style("display", "block");
+            tileContainer.select("g[id='tile" + id + "']").attr("transform", "translate(" + xposition + "," + yposition + ")"); // translate to the right position
             if ((i+1) % topicgridrows === 0) {
                 // same row: sum previous tiles widths
                 xposition += TILE_WIDTH + ROADMAP_RIGHT_MARGIN;
@@ -397,6 +385,18 @@ $(document).ready(function () {
                 xposition = xpositionInitial;
                 yposition += TILE_HEIGHT + TILE_BOTTOM_MARGIN;
             }
+
+            // Add connectors
+            // if (i === 0) {
+            //     // Topic Title
+            //     tileContainer.append("text").attr("class", "topicHeader").attr("fill", "black").attr("display", "block").attr("x", function () {
+            //         return xcount + 20;
+            //     }).attr("y", function () {
+            //         return ycount -10;
+            //     }).attr("font-size", "14px").text(topicTitle).call(wrap, $(".refbody").width());
+            //     // add connector to main vertical line...
+            //     tileContainer.select("g[id='tile" + id + "']").append("path").attr("class", "in-connector").attr("d", "M -40 0 L -25 15 L 0 15").attr("stroke", "#000").attr("stroke-width", 1).attr("fill", "none");
+            // };
 
 
 
@@ -416,16 +416,7 @@ $(document).ready(function () {
             // x[index] = xcount; // assign current xcount and ycount values to current tile in rendering process
             // y[index] = ycount;
             
-            // if (i == 0) {
-            //     // add topic name
-            //     tileContainer.append("text").attr("class", "headers").attr("fill", "black").attr("display", "block").attr("x", function () {
-            //         return xcount + 20;
-            //     }).attr("y", function () {
-            //         return ycount -10;
-            //     }).attr("font-size", "14px").text(topicTitle).call(wrap, canvaswidth);
-            //     // add connector to main vertical line...
-            //     tileContainer.select("g[id='tile" + id + "']").append("path").attr("class", "in-connector").attr("d", "M -40 0 L -25 15 L 0 15").attr("stroke", "#000").attr("stroke-width", 1).attr("fill", "none");
-            // };
+            
             // if ((i > 0) & (xcount != 130)) { // add horizontal connected-to-previous-tile path...
             //     if (tileContainer.select("g[id='tile" + id + "']").text().indexOf("Certification") != -1) // certification tile
             //     {
@@ -501,7 +492,7 @@ $(document).ready(function () {
             return "Stay current";
             break;
             default:
-            return "undefined";// TODO: rename undefined scenario header
+            return "Undefined Scenario"; // TODO: rename undefined scenario header
         }
     };
 
@@ -510,7 +501,6 @@ $(document).ready(function () {
         var refbodyWidth = $(".refbody").width();
         var renderingWidthAvailable = (refbodyWidth < 320 ? 320 : refbodyWidth ) - (ROADMAP_LEFT_MARGIN + ROADMAP_RIGHT_MARGIN);
         var totalRowsWidth = numberOfTiles * (TILE_WIDTH + ROADMAP_RIGHT_MARGIN);
-        console.log(Math.ceil(totalRowsWidth / renderingWidthAvailable));
         return Math.ceil(totalRowsWidth / renderingWidthAvailable);
     }
 
