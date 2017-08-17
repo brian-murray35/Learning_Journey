@@ -374,17 +374,35 @@ $(document).ready(function () {
             }
 
             // Add connectors
-            // if (i === 0) {
-            //     // Topic Title
-            //     tileContainer.append("text").attr("class", "topicHeader").attr("fill", "black").attr("display", "block").attr("x", function () {
-            //         return xcount + 20;
-            //     }).attr("y", function () {
-            //         return ycount -10;
-            //     }).attr("font-size", "14px").text(topicTitle).call(wrap, $(".refbody").width());
-            //     // add connector to main vertical line...
-            //     tileContainer.select("g[id='tile" + id + "']").append("path").attr("class", "in-connector").attr("d", "M -40 0 L -25 15 L 0 15").attr("stroke", "#000").attr("stroke-width", 1).attr("fill", "none");
-            // };
 
+            // add connector to roadmap
+            if (i === 0) {
+                tileContainer.select("g[id='tile" + id + "']")
+                    .append("path")
+                    .attr("class", "in-connector")
+                    // .attr("d", "M -40 0 L -25 15 L 0 15") // this is t he original connector
+                    .attr("d", "M " + -1*ROADMAP_RIGHT_MARGIN + " 0 L " + -1*(ROADMAP_RIGHT_MARGIN/2) + " " + (TILE_MARKER_RADIUS + TILE_MARKER_MARGIN) + " L 0 " + (TILE_MARKER_RADIUS + TILE_MARKER_MARGIN))
+                    .attr("stroke", "#000")
+                    .attr("stroke-width", 1)
+                    .attr("fill", "none");
+            };
+
+            // if (i !== 0 && i < Qtiles.length) {
+            //     tileContainer.select("g[id='tile" + id + "']")
+            //         .append("path")
+            //         .attr("class", "tileContainer-in-connector")
+            //         .attr("d", "M 22 0 L 31 -9 L 61 -9")
+            //         .attr("stroke", "#000")
+            //         .attr("stroke-width", 1).attr("fill", "none");
+            //     tileContainer.select("g[id='tile" + id + "']")
+            //         .append("path")
+            //         .attr("class", "tileContainer-out-in-connector")
+            //         .attr("d", "M 0 " + (TILE_MARKER_RADIUS + TILE_MARKER_MARGIN) + " L 260 " + (TILE_MARKER_RADIUS + TILE_MARKER_MARGIN) + " L 260 46")
+            //         .attr("stroke", "#000")
+            //         .attr("stroke-width", 1)
+            //         .attr("fill", "none");
+        
+            // }
 
 
             // if (xcount + 280 > canvaswidth) {
