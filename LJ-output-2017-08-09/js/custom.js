@@ -1,3 +1,5 @@
+//TODO: Use IIFE (Immediately Invoked Function Expression) to prevent custom.js code to break with other global vars
+// also it will enable code compression as global vars will be recognized
 $(document).ready(function () {
 
     // Journey title
@@ -13,8 +15,8 @@ $(document).ready(function () {
         if (tableData.length > 0) {
             rowObj = {
                 // TODO: get proper encoding version of texts (for special characters or different leters other than latin)
-                // "journeyID": $(tableData[0]).text().trim(),
-                // "journeyTitle": $(tableData[1]).text().trim(),
+                "journeyID": $(tableData[0]).text().trim(),
+                "journeyTitle": $(tableData[1]).text().trim(),
                 "scenarioID": $(tableData[2]).text().trim(),
                 "scenarioTitle": $(tableData[3]).text().trim(),
                 "subtopicID": $(tableData[4]).text().trim(),
@@ -106,11 +108,7 @@ $(document).ready(function () {
         .attr("stroke-width", "1");
 
 
-
-
-
-
-    // TODO: not used?? delete?
+    // TODO: use a realtime instance of canvas width. there is a magic number which doesn't make sense now
     var canvaswidth = $(window).width() -248;
     
     //trigger redraw of learning journey after window resize, to make it responsive - this needs to be cleaned up...
@@ -129,28 +127,14 @@ $(document).ready(function () {
 
     // Define 'normal' svg content containers (asset tiles) from data (normal here means tileContainer, if we later add the capability to optionally expand tiles)
     tileContainer.selectAll("g").data(LJTileData).enter().append("g").attr("id", function (d, i) {
-        //    return i;
         return 'tile'.concat(LJTileData[i].tileID);
     });
-    
-    // add basic tile background rectangle to each tileContainer asset tile --> no, define those as part of the individual tile layout...
-    //tileContainer.selectAll("g").append("rect").attr("x", x).attr("y", y).attr("width", "248px").attr("height", "150px").attr("stroke", "#000").attr("stroke-width", "1").attr("rx", 7).attr("ry", 7);
-    
-    // tileContainer.selectAll("g rect").attr("stroke-width", "10").style("margin-right", "248px");
-    
-    // add "Explore" button to expand a tile on click - currently not used...
-    /*tileContainer.selectAll("g").append("text").attr("fill", "blue").attr("x", "7").attr("y", "112").attr("font-weight", "bold").attr("font-size", "15px").text("Explore").attr("style" ,"display:none")
-    
-    .on("click",function (d,i){
-    content.selectAll("g").attr("style","display:none");
-    content.select("g[id='" + i + "']").attr("style","display:block")
-    });
-     */
-    
+
     // add specific content to each tileContainer asset tile
     tileContainer.selectAll("g").each(function (d, i) {
         var tileType = LJTileData[i].type;
         var tileTitle = LJTileData[i].tileTitle;
+        // TODO: there are several chunks of the same code. Add it to a function when refactoring code.
         switch (tileType) {
             case "Learning Room": //Learning Room
             d3.select(this).append("rect").attr("x", 0).attr("y", 0).attr("width", TILE_WIDTH).attr("height", TILE_HEIGHT).attr("stroke", "#000").attr("stroke-width", "1").attr("rx", 7).attr("ry", 7).attr("fill", "white");
@@ -261,7 +245,7 @@ $(document).ready(function () {
             y[i] = 0;
         };
 
-        // TODO: move this to init part, as it won't need to be mapped every screen resize (also the for loop)
+        // TODO: move this to init part, as it won't need to be mapped every screen resize
         var Qscenarios =[];
             Qscenarios[1] =[];
             Qscenarios[2] =[];
@@ -269,6 +253,7 @@ $(document).ready(function () {
             Qscenarios[4] =[];
             Qscenarios[5] =[];
 
+        // TODO: move this to init part, as it won't need to be mapped every screen resize (also the for loop)
         // push tile id values into respective learning scenario arrays, for later placement into LJ graphic
         for (k = 0; k < LJTileData.length; k++) {
             switch (LJStructureData[k].scenarioID) {
@@ -357,7 +342,6 @@ $(document).ready(function () {
         var topicgridrows = _calculateTopicGridRows(Qtiles.length); // number of rows needed to render topic
         var xpositionInitial = xposition;
         for (i = 0; i < Qtiles.length; i++) {
-
             // Render Topic Title
             if (i === 0 && topicTitle && topicTitle !== "") {
                 tileContainer.append("text")
@@ -376,7 +360,9 @@ $(document).ready(function () {
             var index = Qtiles[i];
             var id = LJStructureData[index].tileID;
             tileContainer.select("g[id='tile" + id + "'] circle").attr("fill", generateScenarioColor(scenarioID));
-            tileContainer.select("g[id='tile" + id + "']").attr("transform", "translate(" + xposition + "," + yposition + ")"); // translate to the right position
+            // translate to the right position
+            tileContainer.select("g[id='tile" + id + "']").attr("transform", "translate(" + xposition + "," + yposition + ")");
+            // checks if tiles needs to be rendered in same row or new row
             if ((i+1) % topicgridrows === 0) {
                 // same row: sum previous tiles widths
                 xposition += TILE_WIDTH + ROADMAP_RIGHT_MARGIN;
@@ -443,11 +429,15 @@ $(document).ready(function () {
             // };
         }
         
-        // next row
+        // topic is finished! add next row
         yposition += TILE_HEIGHT + TILE_BOTTOM_MARGIN;
 
         return yposition;
     }
+
+    /* =========================================================== */
+    /* begin: supporting methods                                     */
+    /* =========================================================== */
 
     // generate Scenario Color
     function generateScenarioColor(k) {
@@ -496,235 +486,6 @@ $(document).ready(function () {
         }
     };
 
-    // calculate rows needed in Topic grid to render Tiles
-    function _calculateTopicGridRows(numberOfTiles) {
-        var refbodyWidth = $(".refbody").width();
-        var renderingWidthAvailable = (refbodyWidth < 320 ? 320 : refbodyWidth ) - (ROADMAP_LEFT_MARGIN + ROADMAP_RIGHT_MARGIN);
-        var totalRowsWidth = numberOfTiles * (TILE_WIDTH + ROADMAP_RIGHT_MARGIN);
-        return Math.ceil(totalRowsWidth / renderingWidthAvailable);
-    }
-
-    // Supporting functions
-
-    // this function currently not used - only needed in future, for connecting to Learning Hub and showing which LJ items a user has already completed
-    function renderDoneItems() {
-        content.selectAll("g").each(function (d) {
-            $.getJSON('http://dewdfth12408:2017/html5-LearningJourney-EN/get_data.php', function (data) {
-                for (i = 0; i < data.length; i++) {
-                    doneItems.push(data[i]);
-                }
-            });
-            if (doneItems.indexOf(d[4]) != -1) {
-                d3.select(this).select("rect").attr("stroke", "green").attr("stroke-width", 3)
-            }
-        })
-    }
-
-
-    /*
-    function renderPart(Qarray, xcount, ycount, scenario) {
-    var Qhelper =[];
-    for (i = Qarray.length -1; i > -1; i--) {
-    if (table[Qarray[i]][3].trim() == "XL") {
-    Qhelper.unshift(Qarray[i]);
-    Qarray.splice(i, 1);
-    }
-    };
-    Qarray = Qarray.concat(Qhelper);
-    
-    //    console.log(Qarray);
-    //    console.log(xcount);
-    //    console.log(ycount);
-    
-    for (i = 0; i < Qarray.length; i++) {
-    var index = Qarray[i];
-    var id = table[index][6].trim();
-    tileContainer.select("g[id='tile" + id + "'] circle").attr("fill",function(){
-    switch(scenario){
-    case "learningRooms":
-    return "purple";
-    break
-    case "gettingStarted":
-    return "red";
-    break
-    case "fullyCompetent":
-    return "green";
-    break
-    case "expandSkills":
-    return "yellow";
-    break
-    case "stayCurrent":
-    return "blue";
-    break
-    default:
-    return "white";
-    break
-    }
-    });
-    x[index] = xcount;
-    y[index] = ycount;
-    
-    if (i == 0) {
-    tileContainer.select("g[id='tile" + id + "']").attr("class", "connector").append("path").attr("d","M -40 0 L -25 15 L 0 15").attr("stroke", "#000").attr("stroke-width",1).attr("fill", "none");
-    } else {
-    if (xcount == 130) {
-    tileContainer.select("g[id='tile" + id + "']").append("path").attr("class", "connector").attr("d","M 10 0 L 25 -10 L 50 -10").attr("stroke", "#000").attr("stroke-width",1).attr("fill", "none");
-    tileContainer.select("g[id='tile" + id + "']").append("rect").attr("class", "connector").attr("x", 55).attr("y", -11).attr("width", 2).attr("height", 2).attr("fill", "#000");
-    tileContainer.select("g[id='tile" + id + "']").append("rect").attr("class", "connector").attr("x", 60).attr("y", -11).attr("width", 2).attr("height", 2).attr("fill", "#000");
-    tileContainer.select("g[id='tile" + id + "']").append("rect").attr("class", "connector").attr("x", 65).attr("y", -11).attr("width", 2).attr("height", 2).attr("fill", "#000");
-    }
-    };
-    if (xcount + 220 < canvaswidth -220) {
-    xcount = xcount + 267;
-    if (i < Qarray.length -1) {
-    tileContainer.select("g[id='tile" + id + "']").append("rect").attr("class", "connector").attr("x", 248).attr("y", 15).attr("width", 20).attr("height", 1).attr("fill", "#000");
-    };
-    } else {
-    xcount = 130;
-    if (i < Qarray.length -1) {
-    ycount = ycount + 180;
-    tileContainer.select("g[id='tile" + id + "']").append("path").attr("class", "connector").attr("d","M 248 16 L 260 26 L 260 46").attr("stroke", "#000").attr("stroke-width",1).attr("fill", "none");
-    tileContainer.select("g[id='tile" + id + "']").append("rect").attr("class", "connector").attr("x", 259).attr("y", 51).attr("width", 2).attr("height", 2).attr("fill", "#000");
-    tileContainer.select("g[id='tile" + id + "']").append("rect").attr("class", "connector").attr("x", 259).attr("y", 56).attr("width", 2).attr("height", 2).attr("fill", "#000");
-    tileContainer.select("g[id='tile" + id + "']").append("rect").attr("class", "connector").attr("x", 259).attr("y", 61).attr("width", 2).attr("height", 2).attr("fill", "#000");
-    
-    };
-    };
-    };
-    return ycount;
-    }
-     */
-    
-    function hoverout(divid) {
-        d3.select("#tile").selectAll("*").remove();
-        $("#" + divid).toggle();
-    }
-    
-    /* ignore this part for now - it is for the tile browser...
-    function hoverdiv(e,divid){
-    
-    var left  = e.clientX  + "px";
-    var top  = e.clientY  + "px";
-    //    var width = $(e.target).width() + "px";
-    //    var div1 = $("#"+divid);
-    var tileID = $(e.target).parent().children().first().text().trim();
-    
-    
-    var i=0;
-    for (j = 0; j < tiledata.length; j++) {
-    if (tiledata[j][0].trim()==tileID){i=j}
-    };
-    d3.select("#tile").selectAll("*").remove();
-    
-    $("#"+divid).css('z-index',10);
-    $("#"+divid).css('left',left);
-    $("#"+divid).css('top',top);
-    $("#"+divid).css('position','fixed');
-    $("#"+divid).toggle();
-    
-    
-    d3.selectAll("#tile").each(function () {
-    //       d3.select("#tile").append("rect").attr("x", x).attr("y", y).attr("width", "248px").attr("height", "150px").attr("fill","white").attr("stroke", "#000").attr("stroke-width", "1").attr("rx", 7).attr("ry", 7);
-    
-    
-    switch (tiledata[i][5].trim()) {
-    case "Learning Room": //Learning Room
-    d3.select(this).append("rect").attr("x",0).attr("y",0).attr("width","248px").attr("height","248px").attr("stroke", "#000").attr("stroke-width", "1").attr("rx", 7).attr("ry", 7).attr("fill", "white");
-    d3.select(this).append("text").attr("fill", "#666666").attr("x", "95").attr("y", "15").attr("font-size", "11px").attr("font-family", "Arial, Sans-Serif").text("Learning Room");
-    d3.select(this).append("text").attr("fill", "black").attr("x", "5").attr("y", "45").attr("width","248px").attr("font-size", "15px").text(function() {
-    return tiledata[i][1].trim();
-    }).call(wrap,170);
-    d3.select(this).append("circle").attr("cx", "15").attr("cy", "15").attr("r", "10").attr("fill", "red").style("stroke", "black");
-    d3.select(this).append("image").attr("x", 15).attr("y", 110).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/Asset 1blue.svg")
-    d3.select(this).append("text").attr("fill", "#999999").attr("x", "45").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("E-learning")
-    d3.select(this).append("image").attr("x", 60).attr("y", 110).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/Webinar.svg")
-    d3.select(this).append("text").attr("fill", "#999999").attr("x", "95").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("Live Access")
-    d3.select(this).append("image").attr("x", 100).attr("y", 110).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/eBook.svg")
-    d3.select(this).append("text").attr("fill", "#999999").attr("x", "125").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("E-book")
-    d3.select(this).append("image").attr("x", 140).attr("y", 110).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/LearningRoom.svg")
-    d3.select(this).append("text").attr("fill", "#999999").attr("x", "170").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("Classroom")
-    
-    // d3.select(this).append("circle").attr("cx", "9").attr("cy", "15").attr("r", "2").attr("fill", "white");
-    // d3.select(this).append("circle").attr("cx", "18").attr("cy", "11").attr("r", "2").attr("fill", "white");
-    // d3.select(this).append("circle").attr("cx", "18").attr("cy", "19").attr("r", "2").attr("fill", "white");
-    // d3.select(this).append("line").attr("x1", "9").attr("y1", "15").attr("x2", "18").attr("y2", "11").attr("stroke", "white").attr("stroke-width", "1");
-    // d3.select(this).append("line").attr("x1", "9").attr("y1", "15").attr("x2", "18").attr("y2", "19").attr("stroke", "white").attr("stroke-width", "1");
-    break;
-    case "2": //OpenSAP
-    d3.select(this).select("rect").attr("fill", "white");
-    d3.select(this).append("text").attr("fill", "black").attr("x", "5").attr("y", "45").attr("font-size", "15px").text(function () {
-    return tiledata[i][1].trim();
-    }).call(wrap, 170);
-    d3.select(this).append("circle").attr("cx", "15").attr("cy", "15").attr("r", "10").attr("fill", "#f2b830").style("stroke", "black");
-    d3.select(this).append("image").attr("x", 60).attr("y", 110).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/Webinar.svg")
-    d3.select(this).append("text").attr("fill", "#999999").attr("x", "95").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("Live Access")
-    d3.select(this).append("image").attr("x", 100).attr("y", 110).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/eBook.svg")
-    d3.select(this).append("text").attr("fill", "#999999").attr("x", "125").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("E-book")
-    d3.select(this).append("text").attr("fill", "black").attr("x", "170").attr("y", "20").attr("text-anchor", "end").text(function () {
-    return tiledata[i][2].trim()
-    });
-    break;
-    case "6": //e-Learning
-    d3.select(this).select("rect").attr("fill", "white");
-    d3.select(this).append("text").attr("fill", "black").attr("x", "5").attr("y", "45").attr("font-size", "15px").text(function () {
-    return tiledata[i][1].trim();
-    }).call(wrap, 170);
-    d3.select(this).append("circle").attr("cx", "15").attr("cy", "15").attr("r", "10").style("stroke", "black").attr("fill", "#93c939");
-    d3.select(this).append("image").attr("x", 50).attr("y", 110).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/eLearning.svg")
-    d3.select(this).append("text").attr("fill", "#999999").attr("x", "80").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("E-learning")
-    
-    d3.select(this).append("image").attr("x", 100).attr("y", 110).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/LearningRoom.svg")
-    d3.select(this).append("text").attr("fill", "#999999").attr("x", "130").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("Classroom")
-    break;
-    case "8": //Certification
-    d3.select(this).select("rect").attr("fill", "white");
-    d3.select(this).append("text").attr("fill", "white").attr("x", "90").attr("y", "45").attr("text-anchor", "middle").attr("font-size", "16px").text(function (d) {
-    return tiledata[i][1].trim();
-    }).call(wrap, 170);
-    d3.select(this).append("text").attr("fill", "white").attr("x", "170").attr("y", "20").attr("text-anchor", "end").text(function () {
-    return tiledata[i][2].trim()
-    });
-    break;
-    case "9": //Certification
-    d3.select(this).select("rect").attr("fill", "white");
-    d3.select(this).append("text").attr("fill", "white").attr("x", "90").attr("y", "45").attr("text-anchor", "middle").attr("font-size", "16px").text(function (d) {
-    return tiledata[i][1].trim();
-    }).call(wrap, 170);
-    d3.select(this).append("circle").attr("cx", "15").attr("cy", "15").attr("r", "10").style("stroke", "black").attr("fill", "#93c939");
-    d3.select(this).append("image").attr("x", 50).attr("y", 110).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/eLearning.svg")
-    d3.select(this).append("text").attr("fill", "#999999").attr("x", "80").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("E-learning")
-    d3.select(this).append("image").attr("x", 100).attr("y", 110).attr("width", "49px").attr("height", "49px").attr("xlink:href","img/eBook.svg")
-    d3.select(this).append("text").attr("fill", "#999999").attr("x", "125").attr("y", "145").attr("text-anchor", "end").attr("font-size", "8px").text("E-book")
-    d3.select(this).append("text").attr("fill", "white").attr("x", "170").attr("y", "20").attr("text-anchor", "end").text(function () {
-    return tiledata[i][2].trim()
-    });
-    break;
-    case "10": // Stay current (e-Learning)
-    d3.select(this).select("rect").attr("fill", "white");
-    d3.select(this).append("text").attr("fill", "black").attr("x", "5").attr("y", "45").attr("font-size", "15px").text(function () {
-    return tiledata[i][1].trim();
-    }).call(wrap, 170);
-    break;
-    default: // general asset tile with only one learning option
-    d3.select(this).append("rect").attr("x",0).attr("y",0).attr("width",248).attr("height",248).attr("stroke", "#000").attr("stroke-width", "1").attr("rx", 7).attr("ry", 7).attr("fill", "white");
-    //d3.select(this).append("rect").attr("x", 0).attr("y", 0).attr("rx", "0").attr("ry", "0").attr("width", "180").attr("height", "25").attr("stroke", "#e0e2e5").attr("stroke-width", "0").attr("fill", "#f2b830");
-    //d3.select(this).append("circle").attr("cx", "15").attr("cy", "15").attr("r", "10").style("stroke", "black").attr("fill", "#93c939");
-    // d3.select(this).append("circle").attr("cx", "15").attr("cy", "13").attr("r", "5").attr("stroke", "#f2b830").attr("stroke-width", 3).attr("fill", "white");
-    d3.select(this).append("text").attr("fill", "black").attr("x", "5").attr("y", "45").attr("font-size", "15px").text(function () {
-    return tiledata[i][1].trim();
-    }).call(wrap, 170);
-    d3.select(this).append("text").attr("fill", "black").attr("x", "190").attr("y", "20").attr("text-anchor", "end").text(function () {
-    return tiledata[i][5].trim()
-    });
-    
-    }
-    ;
-    });
-    
-    } // end function hoverdiv
-     */
-    
-    
     function wrap(text, width) {
         text.each(function (d, i) {
             var text = d3.select(this),
@@ -750,7 +511,15 @@ $(document).ready(function () {
                 }
             };
         });
-    }
-    
+    };
+
+    // calculate rows needed in Topic grid to render Tiles
+    function _calculateTopicGridRows(numberOfTiles) {
+        var refbodyWidth = $(".refbody").width();
+        var renderingWidthAvailable = (refbodyWidth < 320 ? 320 : refbodyWidth ) - (ROADMAP_LEFT_MARGIN + ROADMAP_RIGHT_MARGIN);
+        var totalRowsWidth = numberOfTiles * (TILE_WIDTH + ROADMAP_RIGHT_MARGIN);
+        return Math.ceil(totalRowsWidth / renderingWidthAvailable);
+    };
+
     $(".body").prepend($('<div><svg width="100%" height="20px"><line x1="0" y1="0" x2="100%" y2="0" style="stroke:rgb(0,0,0);stroke-width:12" /></svg></div><div class="floating-box1"><img src="img/LearningJourney.svg" alt="Learning Journey" style="width:60px;"></div><div class="floating-box2"><h1 class="title topictitle1">' + journeyTitle + '</h1></div><div style="margin-top:-5px;margin-right:24px;margin-left:28px"><svg width="100%" height="3px"><line x1="0" y1="0" x2="100%" y2="0" style="stroke:rgb(0,0,0);stroke-width:4" /></svg></div>'));
 })
