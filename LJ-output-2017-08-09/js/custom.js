@@ -227,8 +227,9 @@ $(document).ready(function () {
         roadmap.selectAll("text.scenarioHeader").remove();
         tileContainer.selectAll("text.topicHeader").remove();
         tileContainer.selectAll("g path.in-connector").remove();
-        tileContainer.selectAll("g path.tileContainer-out-connector").remove();
-        tileContainer.selectAll("g path.tileContainer-in-connector").remove();
+        tileContainer.selectAll("g path.out-in-connector").remove();
+        tileContainer.selectAll("g path.cont-out-connector").remove();
+        tileContainer.selectAll("g path.cont-in-connector").remove();
         // initialize positioning counters and streams of learning journey
         xposition = ROADMAP_LEFT_MARGIN + ROADMAP_RIGHT_MARGIN; // initial x value when starting to render journey
         yposition = ROADMAP_TOP_MARGIN; // initial y value when starting to render journey
@@ -375,7 +376,7 @@ $(document).ready(function () {
 
             // Add connectors
 
-            // add connector to roadmap
+            // add connector to roadmap if first tile in Topic
             if (i === 0) {
                 tileContainer.select("g[id='tile" + id + "']")
                     .append("path")
@@ -385,24 +386,27 @@ $(document).ready(function () {
                     .attr("stroke", "#000")
                     .attr("stroke-width", 1)
                     .attr("fill", "none");
-            };
+            } else if (i !== 0) { // add connector to roadmap if not first tile in Topic
+                // TODO: add logic for same row tile
+                if (true) {
+                    tileContainer.select("g[id='tile" + id + "']")
+                        .append("path")
+                        .attr("class", "cont-in-connector")
+                        .attr("d", "M 22 0 L 31 -9 L 61 -9")
+                        .attr("stroke", "#000")
+                        .attr("stroke-width", 1).attr("fill", "none");
+                } else {
+                    tileContainer.select("g[id='tile" + id + "']")
+                        .append("path")
+                        .attr("class", "out-in-connector")
+                        .attr("d", "M " + -1*ROADMAP_RIGHT_MARGIN + " " + (TILE_MARKER_RADIUS + TILE_MARKER_MARGIN) + " L 0 " + (TILE_MARKER_RADIUS + TILE_MARKER_MARGIN))
+                        .attr("stroke", "#000")
+                        .attr("stroke-width", 1)
+                        .attr("fill", "none");
+                }
+            }
 
-            // if (i !== 0 && i < Qtiles.length) {
-            //     tileContainer.select("g[id='tile" + id + "']")
-            //         .append("path")
-            //         .attr("class", "tileContainer-in-connector")
-            //         .attr("d", "M 22 0 L 31 -9 L 61 -9")
-            //         .attr("stroke", "#000")
-            //         .attr("stroke-width", 1).attr("fill", "none");
-            //     tileContainer.select("g[id='tile" + id + "']")
-            //         .append("path")
-            //         .attr("class", "tileContainer-out-in-connector")
-            //         .attr("d", "M 0 " + (TILE_MARKER_RADIUS + TILE_MARKER_MARGIN) + " L 260 " + (TILE_MARKER_RADIUS + TILE_MARKER_MARGIN) + " L 260 46")
-            //         .attr("stroke", "#000")
-            //         .attr("stroke-width", 1)
-            //         .attr("fill", "none");
-        
-            // }
+            
 
 
             // if (xcount + 280 > canvaswidth) {
@@ -412,7 +416,7 @@ $(document).ready(function () {
             //     if (i > 0) {
             //         // add connected-to-previous-tile-in-last-row path...
             //         // tileContainer.select("g[id='tile" + id + "']").append("path").attr("class", "connector").attr("d", "M 10 0 L 25 -10 L 50 -10").attr("stroke", "#000").attr("stroke-width", 1).attr("fill", "none");
-            //         tileContainer.select("g[id='tile" + id + "']").append("path").attr("class", "tileContainer-in-connector").attr("d", "M 22 0 L 31 -9 L 61 -9").attr("stroke", "#000").attr("stroke-width", 1).attr("fill", "none");
+            //         tileContainer.select("g[id='tile" + id + "']").append("path").attr("class", "cont-in-connector").attr("d", "M 22 0 L 31 -9 L 61 -9").attr("stroke", "#000").attr("stroke-width", 1).attr("fill", "none");
             //     }
             // };
             // if (tileContainer.select("g[id='tile" + id + "']").text().indexOf("Certification") != -1){
@@ -442,7 +446,7 @@ $(document).ready(function () {
             //     if ((xcount + 280 > canvaswidth) & (i < Qtiles.length -1)) {
             //         // add connector downwards to next tile...
             //         // tileContainer.select("g[id='tile" + id + "']").append("path").attr("class", "connector").attr("d", "M 248 16 L 260 26 L 260 46").attr("stroke", "#000").attr("stroke-width", 1).attr("fill", "none");
-            //         tileContainer.select("g[id='tile" + id + "']").append("path").attr("class", "tileContainer-out-connector").attr("d", "M 248 16 L 260 28 L 260 58").attr("stroke", "#000").attr("stroke-width", 1).attr("fill", "none");
+            //         tileContainer.select("g[id='tile" + id + "']").append("path").attr("class", "cont-out-connector").attr("d", "M 248 16 L 260 28 L 260 58").attr("stroke", "#000").attr("stroke-width", 1).attr("fill", "none");
                 
             //     }
             // };
