@@ -105,7 +105,8 @@ $(document).ready(function () {
         .attr("x2", ROADMAP_LEFT_MARGIN)
         .attr("y2", 9999) // y2 will be calculated after tiles are rendered
         .attr("stroke", "#000")
-        .attr("stroke-width", "1");
+        .attr("stroke-width", "10")
+        .attr("stroke", "grey");
 
 
     // TODO: use a realtime instance of canvas width. there is a magic number which doesn't make sense now
@@ -384,8 +385,8 @@ $(document).ready(function () {
                     // .attr("d", "M -40 0 L -25 15 L 0 15") // this is t he original connector
                     .attr("d", "M " + -1*ROADMAP_RIGHT_MARGIN + " 0 L " + -1*(ROADMAP_RIGHT_MARGIN/2) + " " + (TILE_MARKER_RADIUS + TILE_MARKER_MARGIN) + " L 0 " + (TILE_MARKER_RADIUS + TILE_MARKER_MARGIN))
                     .attr("stroke", "#000")
-                    .attr("stroke-width", 1)
-                    .attr("fill", "none");
+                    .attr("stroke-width", "10")
+                    .attr("stroke", "grey");
             } else if (i !== 0) { // add connector to roadmap if not first tile in Topic
                 // TODO: add logic for same row tile
                 if (true) {
